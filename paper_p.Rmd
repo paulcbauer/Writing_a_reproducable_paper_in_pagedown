@@ -1,0 +1,58 @@
+---
+title: "Writing a reproducible paper in Pagedown^[Corresponding address: mail@paulcbauer.eu.<br> Acknowledgments: I am grateful to all those generous people that invest their time into open-source software.]"
+shorttitle: "**foo**:  A Capitalized Title"
+author:
+  - name: Paul C. Bauer
+    affiliation: Mannheim Centre for European Social Research
+    email: <mail@paulcbauer.eu>
+  - name: Camille Landesvatter
+    affiliation: Mannheim Centre for European Social Research
+    email: <landesvatterc@gmail.com>
+abstract: \noindent\setstretch{1}The present paper provides a template for a reproducible scientific paper written in R Markdown. Below I outline some of the "tricks"/code (e.g., referencing tables, sections etc.) I had to figure out to produce this document. The underlying files which produce this document can be downloaded [here]<https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing). I think I got pretty far but there is always room for improvement and more automatization, in parallel to the incredible developments in R and Rstudio (bookdown etc.). I intend to update this file when I discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/)).\vspace{.8cm}
+# at least one keyword must be supplied
+keywords: [keywords, not capitalized, "[Java]{.proglang}"]
+paged-footnotes: true
+link-citations: true
+linestretch: 1.2
+colorlinks: true
+bibliography: index.bib
+output:
+  pagedown::html_paged:
+    toc: true
+    toc_depth: 3    # change to true for a self-contained document, but it'll be a litte slower for Pandoc to render
+    self_contained: TRUE
+    css: ['default.css', 'default-fonts.css', 'default-page.css']
+# uncomment this line to produce HTML and PDF in RStudio:
+#knit: pagedown::chrome_print
+---
+
+# Introduction
+
+This template demonstrates some of the basic [markdown]{.proglang} you'll need to know to create a JSS article with **pagedown** [@R-pagedown].
+
+## Code formatting
+
+You should use **Pandoc**'s [markdown]{.proglang} but you also can use $\LaTeX$ commands:
+
+* [Java]{.proglang} or $\proglang{Java}$ 
+* **plyr**, [plyr]{.pkg} or $\pkg{plyr}$
+* `print("abc")` or $\code{print("abc")}$
+
+# [R]{.proglang} code
+
+Can be inserted in regular [R Markdown]{.proglang} blocks.
+
+```{r}
+x <- 1:10
+x
+```
+
+# Render the document
+
+If you use the option `self_contained: false` (see line \#22 of this `Rmd` file), don't click on the `Knit` button in RStudio. Use instead the **xaringan** [@R-xaringan] RStudio add-in _Infinite Moon Reader_.
+
+# References {-}
+
+```{r, include=FALSE}
+knitr::write_bib(c(.packages(), 'pagedown', 'xaringan'), 'index.bib')
+```
