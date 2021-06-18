@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta property="dc:format" content="text/html">
+<meta name="generator" content="pandoc">
+<meta name="viewport" content="width=device-width">
+<meta property="dc:type" content="Text">
+<meta property="dc:language" content="en">
+<meta property="dc:title og:title" content="Writing a reproducible paper in PagedownCorresponding address: mail@paulcbauer.eu.  Acknowledgments: I am grateful to all those generous people that invest their time into open-source software.">
+
+<meta property="og:image" content="https://www.jstatsoft.org/public/site/images/jstatsoft/jsslogo.jpg">
+<link rel="icon" href="https://www.jstatsoft.org/public/journals/1/journalFavicon_en_US.gif">
+<meta name="description" property="dc:description og:description schema:description" content="Writing a reproducible paper in PagedownCorresponding address: mail@paulcbauer.eu.  Acknowledgments: I am grateful to all those generous people that invest their time into open-source software.">
+
+
+<meta name="keywords" property="dc:subject" content="keywords">
+
+<title>Writing a reproducible paper in PagedownCorresponding address: mail@paulcbauer.eu.  Acknowledgments: I am grateful to all those generous people that invest their time into open-source software.</title>
+
+<script>
+window.PagedConfig = {
+  before: async () => {
+    // Expand the citations links
+    let citations = document.querySelectorAll('.citation');
+    for (let citation of citations) {
+      let anchor = citation.querySelector('a');
+      if (!anchor) continue;
+      let span = document.createElement('span');
+      span.innerHTML = anchor.innerHTML
+      anchor.insertAdjacentElement('afterend', span)
+      let href = anchor.getAttribute('href')
+      anchor.remove();
+
+      let newAnchor = document.createElement('a');
+      newAnchor.setAttribute('href', href);
+      citation.insertAdjacentElement('beforebegin', newAnchor);
+      newAnchor.appendChild(citation);
+    }
+
+    // For the table captions, we would want to write this CSS rule:
+    //     caption {caption-side: bottom-outside;}
+    // However, the bottom-outside value is not standard and not implemented in Chrome.
+    // So, we need to modify the DOM.
+    let tables = document.querySelectorAll('table');
+    for (let table of tables) {
+      let caption = table.querySelector('caption');
+      if (!caption) continue;
+      let tableContainer = document.createElement('div');
+      tableContainer.className = 'table-container';
+      table.insertAdjacentElement('beforebegin', tableContainer);
+      tableContainer.appendChild(table);
+      let bookdownIdentifier = caption.querySelector('span[id^="tab\\:"]');
+      if (!!bookdownIdentifier) {
+        let tableId = bookdownIdentifier.id;
+        bookdownIdentifier.removeAttribute('id');
+        table.id = tableId;
+      }
+      let newCaption = document.createElement('p');
+      newCaption.className = 'caption';
+      newCaption.innerHTML = caption.innerHTML;
+      caption.remove();
+      tableContainer.appendChild(newCaption);
+    }
+  }
+}
+</script>
+
+
+<script src="paper_pagedown_files/header-attrs-2.8.6/header-attrs.js"></script>
+<script src="paper_pagedown_files/paged-0.14/js/config.js"></script>
+<script src="paper_pagedown_files/paged-0.14/js/paged.js"></script>
+<script src="paper_pagedown_files/paged-0.14/js/hooks.js"></script>
+<script src="paper_pagedown_files/kePrint-0.0.1/kePrint.js"></script>
+<link href="paper_pagedown_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<link rel="stylesheet" href="jss.css" type="text/css" />
+<link rel="stylesheet" href="jss-fonts.css" type="text/css" />
+<link rel="stylesheet" href="jss-page.css" type="text/css" />
+
+</head>
+
+<body>
+  <div style="display:none" aria-hidden="true">
+  \(
+    \let\pkg=\mathbf
+    \let\proglang=\textsf
+    \let\code=\texttt
+    \newcommand{\E}{\mathsf{E}}
+    \newcommand{\VAR}{\mathsf{VAR}}
+    \newcommand{\COV}{\mathsf{COV}}
+    \newcommand{\Prob}{\mathsf{P}}
+  \)
+  </div>
+
+
+
+
+<article>
+
+<header id="header" class="title-page">
+<h1 class="title">Writing a reproducible paper in Pagedown<span id="fn4" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="4">Corresponding address: <a href="mailto:mail@paulcbauer.eu" class="email">mail@paulcbauer.eu</a>.<br> Acknowledgments: I am grateful to all those generous people that invest their time into open-source software.</span></h1>
+<span class="shorttitle" style="display: none;" aria-hidden="true">Writing a reproducible paper in Pagedown</span>
+<div class="authors-container" role="list">
+<p class="author-item" role="listitem" style="--rank: 1;">
+<span class="author">Paul C. Bauer</span>
+<br><span class="author-affil">
+Mannheim Centre for European Social Research
+</span>
+</p>
+<p class="author-item" role="listitem" style="--rank: 2;">
+<span class="author">Camille Landesvatter</span>
+<br><span class="author-affil">
+Mannheim Centre for European Social Research
+</span>
+</p>
+</div>
+</header>
+
+<section class="abstract" property="dc:abstract">
+<h2 class="abstract-header">Abstract</h2>
+<div class="abstract-content">
+The present paper provides a template for a reproducible scientific paper written in R Markdown. Below I outline some of the “tricks”/code (e.g., referencing tables, sections etc.) I had to figure out to produce this document. The underlying files which produce this document can be downloaded here<span id="fn1" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="1"><a href="https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing" class="uri">https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing</a></span>. I think I got pretty far but there is always room for improvement and more automatization, in parallel to the incredible developments in R and Rstudio (bookdown etc.). I intend to update this file when I discover more convenient code (you can follow any updates through the corresponding github repo<span id="fn2" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="2"><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/" class="uri">https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/</a></span>).
+</div>
+<section class="keywords" role="list" aria-labelledby="keywords-header">
+<p><span id="keywords-header" class="keywords-heading" aria-level="3" role="heading">Keywords</span>: <span role="listitem">keywords</span>.</p>
+</section>
+</section>
+
+<main role="main">
+<div class="page-break-after"></div>
+<div id="why-reproducible-research-in-r" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Why reproducible research (in R)?</h1>
+<div class="page-break-after"></div>
+</div>
+<div id="prerequesites" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Prerequesites</h1>
+<div class="page-break-after"></div>
+</div>
+<div id="basics-input-and-output-files" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Basics: Input and output files</h1>
+<div class="page-break-after"></div>
+</div>
+<div id="referencing-within-your-document" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Referencing within your document</h1>
+<div class="page-break-after"></div>
+</div>
+<div id="software-versioning" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Software versioning</h1>
+<div class="page-break-after"></div>
+</div>
+<div id="inline-code-results" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Inline code &amp; results</h1>
+<p>Can be inserted in regular <span class="proglang">R Markdown</span> blocks.</p>
+<pre class="r r-chunk-code"><code>R&gt; x &lt;- 1:10
+R&gt; x</code></pre>
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="page-break-after"></div>
+</div>
+<div id="data" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Data</h1>
+<div id="import" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Import</h2>
+<pre class="r r-chunk-code"><code>R&gt; data &lt;- read.csv(&quot;data.csv&quot;)
+R&gt; head(data)</code></pre>
+<pre><code>  X speed dist
+1 1     4    2
+2 2     4   10
+3 3     7    4
+4 4     7   22
+5 5     8   16
+6 6     9   10</code></pre>
+</div>
+</div>
+<div id="sec:tables" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Tables</h1>
+<p>Producing good tables and referencing these tables within a R Markdown PDF has been a hassle but got much better. Examples that you may use are shown below. The way you reference tables is slightly different, e.g., for <code>stargazer</code> the label is contained in the function, for <code>kable</code> it’s contained in the chunk name.</p>
+<div id="stargazer-summary-and-regression-tables" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> stargazer(): Summary and regression tables</h2>
+<p>Table <a href="#tab1"><strong>??</strong></a> shows summary stats of your data.<span id="fn5" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="5">To reference the table where you set the identifier in the stargazer function you only need to use the actual label, i.e., ´tab1´.</span> I normally use <code>stargazer()</code> <span class="citation">(<a href="#ref-hlavac2013stargazer" role="doc-biblioref"><strong>hlavac2013stargazer?</strong></a>)</span> which offers extreme flexibility regarding table output (see <code>?stargazer</code>).</p>
+<pre class="r r-chunk-code"><code>R&gt; library(stargazer)
+R&gt; stargazer(cars, 
+R+           title = &quot;Summary table with stargazer&quot;,
+R+           label=&quot;tab1&quot;, 
+R+           table.placement = &quot;H&quot;, 
+R+           type=&quot;html&quot;,
+R+           header=FALSE)</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Summary table with stargazer</strong>
+</caption>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+N
+</td>
+<td>
+Mean
+</td>
+<td>
+St. Dev.
+</td>
+<td>
+Min
+</td>
+<td>
+Pctl(25)
+</td>
+<td>
+Pctl(75)
+</td>
+<td>
+Max
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+speed
+</td>
+<td>
+50
+</td>
+<td>
+15.400
+</td>
+<td>
+5.288
+</td>
+<td>
+4
+</td>
+<td>
+12
+</td>
+<td>
+19
+</td>
+<td>
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+dist
+</td>
+<td>
+50
+</td>
+<td>
+42.980
+</td>
+<td>
+25.769
+</td>
+<td>
+2
+</td>
+<td>
+26
+</td>
+<td>
+56
+</td>
+<td>
+120
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+<p>Table <a href="#tab2"><strong>??</strong></a> shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.</p>
+<pre class="r r-chunk-code"><code>R&gt; library(stargazer)
+R&gt; model1 &lt;- lm(speed ~ dist, data = cars)
+R&gt; model2 &lt;- lm(speed ~ dist, data = cars)
+R&gt; model3 &lt;- lm(dist ~ speed, data = cars)
+R&gt; 
+R&gt; stargazer(model1, model2, model3,
+R+           title = &quot;Regression table with stargazer&quot;,
+R+           label=&quot;tab2&quot;,
+R+           table.placement = &quot;H&quot;, 
+R+           column.labels = c(&quot;M1&quot;, &quot;M2&quot;, &quot;M3&quot;),
+R+           type=&quot;html&quot;,
+R+           model.numbers = FALSE,
+R+           header=FALSE)</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Regression table with stargazer</strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+speed
+</td>
+<td>
+dist
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+M1
+</td>
+<td>
+M2
+</td>
+<td>
+M3
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+dist
+</td>
+<td>
+0.166<sup>***</sup>
+</td>
+<td>
+0.166<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.017)
+</td>
+<td>
+(0.017)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+speed
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+3.932<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.416)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+8.284<sup>***</sup>
+</td>
+<td>
+8.284<sup>***</sup>
+</td>
+<td>
+-17.579<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.874)
+</td>
+<td>
+(0.874)
+</td>
+<td>
+(6.758)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+50
+</td>
+<td>
+50
+</td>
+<td>
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.651
+</td>
+<td>
+0.651
+</td>
+<td>
+0.651
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.644
+</td>
+<td>
+0.644
+</td>
+<td>
+0.644
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error (df = 48)
+</td>
+<td>
+3.156
+</td>
+<td>
+3.156
+</td>
+<td>
+15.380
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic (df = 1; 48)
+</td>
+<td>
+89.567<sup>***</sup>
+</td>
+<td>
+89.567<sup>***</sup>
+</td>
+<td>
+89.567<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="kable-and-kable_styling" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> kable() and kable_styling()</h2>
+<p>Another great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. Table <a href="#tab:tab3">8.1</a> provides an example.<span id="fn6" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="6">To reference the table produced by the chunk you need to add ´tab:´ to the chunk name, i.e., ´tab:tab3´.</span></p>
+<pre class="r r-chunk-code"><code>R&gt; library(knitr)
+R&gt; library(kableExtra)
+R&gt; 
+R&gt; kable(mtcars[1:10,], row.names = TRUE, 
+R+       caption = &#39;Table with kable() and kablestyling()&#39;, 
+R+       format = &quot;html&quot;, booktabs = T) %&gt;%
+R+         kable_styling(full_width = T, 
+R+                       latex_options = c(&quot;striped&quot;, 
+R+                                         &quot;scale_down&quot;,
+R+                                         &quot;HOLD_position&quot;),
+R+                       font_size = 10)</code></pre>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab3">Table 8.1: </span>Table with kable() and kablestyling()
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+mpg
+</th>
+<th style="text-align:right;">
+cyl
+</th>
+<th style="text-align:right;">
+disp
+</th>
+<th style="text-align:right;">
+hp
+</th>
+<th style="text-align:right;">
+drat
+</th>
+<th style="text-align:right;">
+wt
+</th>
+<th style="text-align:right;">
+qsec
+</th>
+<th style="text-align:right;">
+vs
+</th>
+<th style="text-align:right;">
+am
+</th>
+<th style="text-align:right;">
+gear
+</th>
+<th style="text-align:right;">
+carb
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mazda RX4
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+160.0
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.90
+</td>
+<td style="text-align:right;">
+2.620
+</td>
+<td style="text-align:right;">
+16.46
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mazda RX4 Wag
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+160.0
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.90
+</td>
+<td style="text-align:right;">
+2.875
+</td>
+<td style="text-align:right;">
+17.02
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Datsun 710
+</td>
+<td style="text-align:right;">
+22.8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+108.0
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+3.85
+</td>
+<td style="text-align:right;">
+2.320
+</td>
+<td style="text-align:right;">
+18.61
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hornet 4 Drive
+</td>
+<td style="text-align:right;">
+21.4
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+258.0
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.08
+</td>
+<td style="text-align:right;">
+3.215
+</td>
+<td style="text-align:right;">
+19.44
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hornet Sportabout
+</td>
+<td style="text-align:right;">
+18.7
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+360.0
+</td>
+<td style="text-align:right;">
+175
+</td>
+<td style="text-align:right;">
+3.15
+</td>
+<td style="text-align:right;">
+3.440
+</td>
+<td style="text-align:right;">
+17.02
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Valiant
+</td>
+<td style="text-align:right;">
+18.1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+225.0
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+2.76
+</td>
+<td style="text-align:right;">
+3.460
+</td>
+<td style="text-align:right;">
+20.22
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Duster 360
+</td>
+<td style="text-align:right;">
+14.3
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+360.0
+</td>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:right;">
+3.21
+</td>
+<td style="text-align:right;">
+3.570
+</td>
+<td style="text-align:right;">
+15.84
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merc 240D
+</td>
+<td style="text-align:right;">
+24.4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+146.7
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+3.69
+</td>
+<td style="text-align:right;">
+3.190
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merc 230
+</td>
+<td style="text-align:right;">
+22.8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+140.8
+</td>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:right;">
+3.150
+</td>
+<td style="text-align:right;">
+22.90
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merc 280
+</td>
+<td style="text-align:right;">
+19.2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+167.6
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:right;">
+3.440
+</td>
+<td style="text-align:right;">
+18.30
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="render-the-document" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Render the document</h1>
+<p>If you use the option <code>self_contained: false</code> (see line #22 of this <code>Rmd</code> file), don’t click on the <code>Knit</code> button in RStudio. Use instead the <strong>xaringan</strong> <span class="citation">(<a href="#ref-R-xaringan" role="doc-biblioref">Xie 2021</a>)</span> RStudio add-in <em>Infinite Moon Reader</em>.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-R-xaringan" class="csl-entry">
+Xie Y (2021). <em>Xaringan: Presentation Ninja</em>. Retrieved from <a href="https://github.com/yihui/xaringan">https://github.com/yihui/xaringan</a>
+</div>
+</div>
+</div>
+</main>
+
+
+</article>
+
+
+<script>
+// when the page is about to reload via servr, remember the scroll position
+document.addEventListener('servr:reload', function(e) {
+  sessionStorage.setItem('pagedown-scroll', window.scrollY);
+});
+</script>
+</body>
+</html>
