@@ -77,6 +77,12 @@ h1.title {
   font-size: 14px;
 }
 
+/* date (+) */
+.date {
+  font-size: 12px;
+  text-align: center;
+}
+
 /* abstract */
 .abstract {
   border-width: 1px 0;

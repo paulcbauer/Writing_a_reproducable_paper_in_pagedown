@@ -179,6 +179,13 @@ $endif$
 </header>
 $endif$
 
+<! –– add a date class to the front page (+)-->
+<section class="date" property="dc:date">
+$if(date)$
+<h2 class="date">$date$</h2>
+$endif$
+</section>
+
 <section class="abstract" property="dc:abstract">
 $if(abstract)$
 <h2 class="abstract-header">Abstract</h2>
@@ -190,6 +197,7 @@ $endif$
 <p><span id="$idprefix$keywords-header" class="keywords-heading" aria-level="3" role="heading">Keywords</span>: $for(keywords)$<span role="listitem">$keywords$</span>$sep$, $endfor$.</p>
 </section>
 </section>
+
 
 <main role="main">
 $body$
