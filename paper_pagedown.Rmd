@@ -9,12 +9,12 @@ author:
     affiliation: Mannheim Centre for European Social Research
     email: <camille.landesvatter@mzes.uni-mannheim.de>
 date: 'First version: 20 June, 2021<br>This version: `r format(Sys.time(), "%d %B, %Y")`'
-abstract: 'The present paper provides a template for a reproducible scientific paper written in R Markdown. Below I outline some of the "tricks"/code (e.g., referencing tables, sections etc.) I had to figure out to produce this document. The underlying files which produce this document can be downloaded [here](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing). I think I got pretty far but there is always room for improvement and more automatization, in parallel to the incredible developments in R and Rstudio (bookdown etc.). I intend to update this file when I discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/)).'
+abstract: 'The present paper provides a template for a reproducible scientific paper written in R Markdown. Below I outline some of the "tricks"/code (e.g., referencing tables, sections etc.) I had to figure out to produce this document. The underlying files which produce this document can be downloaded [here](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing). I think I got pretty far but there is always room for improvement and more automatization, in parallel to the incredible developments in R and Rstudio (bookdown etc.). I intend to update this file when I discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
 # at least one keyword must be supplied
 keywords: [open science, transparency, replication, R, markdown, pagedown]
 links-to-footnotes: true
 paged-footnotes: true
-bibliography: index.bib
+bibliography: references.bib
 output: 
   pagedown::jss_paged:
     template: wp_paged.html
@@ -68,7 +68,7 @@ remotes::install_github('rstudio/pagedown')
 * ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra; @plotly].
 ```{r eval=FALSE, include=TRUE}
 install.packages(c("rmarkdown", "knitr", "kableExtra",
-                   "stargazer", "plotly", "knitr"))
+                   "stargazer", "modelsummary", "plotly", "knitr"))
 ```
 * ...download the 4 input files we created --- `paper.rmd`, `references.bib`, `data.csv` and `american-sociological-association.csl` --- from [this folder](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing). Ignore the other files.
 * ...also download the 4 styling files we created: `wp_paged.html`, `wp.css`, `wp-fonts.css` and `wp-pages.css`.
@@ -222,7 +222,32 @@ kable(mtcars[1:10,], row.names = TRUE,
 
 ## modelsummary
 
-https://vincentarelbundock.github.io/modelsummary/articles/datasummary.html
+The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easzz to embed them in dznmaic documents.
+
+Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for.
+
+In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
+
+### Summarize numeric variables with modelsummary
+
+Table \@ref(tab:tab4) shows a summary table for numeric variables. 
+
+```{r tab4, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+library(modelsummary)
+
+mtcars_df <- mtcars
+mtcars_df$vs <- as.logical(mtcars_df$vs)
+mtcars_df$cyl <- as.factor(mtcars_df$cyl)
+datasummary_skim(mtcars, type="numeric", output="html", histogram=T)
+```
+
+### Summarize categorical variables with modelsummary
+
+Table \@ref(tab:tab5) shows a summary table for categorical variables. 
+
+```{r tab5, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+datasummary_skim(mtcars_df, type="categorical", output="html")
+```
 
 
 # Inline code & results
@@ -258,7 +283,11 @@ ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
 
 ## Interactive graphs
 
-html!
+
+
+
+
+
 
 
 # Compiling 
@@ -269,9 +298,9 @@ There are several options, depending on your intention.
 
 - click on the `Knit` button which by default will provide a html document in the RStudio viewer pane (the html will be stored in your working directory)
 - use pagedown's `chrome_print` function in the YAML (uncomment line \#24 of this `Rmd` file) if you want your html based web page to be (additionally to the html!) printed to be PDF (the PDF will be stored in your working directory)
-- to "live"-preview your pages do not click on the `Knit` button but use the **xaringan** [@R-xaringan] RStudio add-in _Infinite Moon Reader_. You can simply call the function `xaringan::inf_mr()` (within your console). This will launch a local web server via the **servr** package (Xie 2021a) and display your pages in the RStudio viewer. Each time you save your document (_Ctrl+S_) xaringan updates your pages in the viewer.
+- to "live"-preview your pages do not click on the `Knit` button but use the **xaringan** [@xaringan] RStudio add-in _Infinite Moon Reader_. You can simply call the function `xaringan::inf_mr()` (within your console). This will launch a local web server via the **servr** package (Xie 2021a) and display your pages in the RStudio viewer. Each time you save your document (_Ctrl+S_) xaringan updates your pages in the viewer.
 
-- If you use the option `self_contained: false` (see line \#21 of this `Rmd` file) (change to true for a self-contained document, but it'll be a litte slower for Pandoc to render), don't click on the `Knit` button in RStudio. Use instead the **xaringan** [@R-xaringan] RStudio add-in _Infinite Moon Reader_.
+- If you use the option `self_contained: false` (see line \#21 of this `Rmd` file) (change to true for a self-contained document, but it'll be a litte slower for Pandoc to render), don't click on the `Knit` button in RStudio. Use instead the **xaringan** [@xaringan] RStudio add-in _Infinite Moon Reader_.
 
 
 
@@ -321,17 +350,19 @@ In the present document we use the style of the American Sociological Associatio
 The github directory contains a wide variety of citation style files depending on what discipline you work in.
 
 
-
-
-
 # References {-}
 
-```{r, include=FALSE}
-knitr::write_bib(c(.packages(), 'pagedown', 'xaringan'), 'index.bib')
-```
+::: {#refs}
+
+:::
+
+<!--  to generate a citation entry for BibTeX, you can pass the returned object of citation() to toBibtex(), e.g. toBibtex(citation("xaringan")). Then  copy the output to a .bib file and add a unique citation key -->
+<!-- https://bookdown.org/yihui/rmarkdown-cookbook/write-bib.html -->
 
 
-# Online appendix
+
+
+# Online appendix {-}
 
 ## Attach R session info in appendix {#sec:rsessioninfo}
 
@@ -347,3 +378,7 @@ To simply attach all the code you used in the PDF file in the appendix see the R
 
 ```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}
 ```
+
+
+
+
