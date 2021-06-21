@@ -9,7 +9,7 @@ author:
     affiliation: Mannheim Centre for European Social Research
     email: <camille.landesvatter@mzes.uni-mannheim.de>
 date: 'First version: 20 June, 2021<br>This version: `r format(Sys.time(), "%d %B, %Y")`'
-abstract: 'The present paper provides a template for a reproducible scientific paper written in R Markdown. Below I outline some of the "tricks"/code (e.g., referencing tables, sections etc.) I had to figure out to produce this document. The underlying files which produce this document can be downloaded [here](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing). I think I got pretty far but there is always room for improvement and more automatization, in parallel to the incredible developments in R and Rstudio (bookdown etc.). I intend to update this file when I discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
+abstract: 'The present paper provides a template for a reproducible scientific paper created with R pagedown. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be downloaded^[https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing]. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a "working paper". We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
 # at least one keyword must be supplied
 keywords: [open science, transparency, replication, R, markdown, pagedown]
 links-to-footnotes: true
@@ -20,18 +20,10 @@ output:
     template: wp_paged.html
     self_contained: true
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
-# uncomment this line to produce HTML and PDF in RStudio:
+    csl: american-sociological-association.csl
+# uncomment the next line if you only want to knit to HTML and not PDF
 knit: pagedown::chrome_print
 ---
-
-\clearpage
-
-\renewcommand{\baselinestretch}{0.5}\normalsize
-\tableofcontents
-\renewcommand{\baselinestretch}{1.1}\normalsize
-
-\clearpage
-
 
 \newpage
 # Why reproducible research (in R)?
@@ -39,24 +31,29 @@ knit: pagedown::chrome_print
 Some arguments...
 
 * **Access**: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge [@Kirsop2005-ro].
+
 * **Reproducability**: Even if you have written a study and analyzed the data yourself you will forget what you did after a few months. A fully reproducible setup will help you to trace back your own steps. Obviously, the same is true for other researchers who may want to understand your work and built on it. It may sound like a joke but why not aim for a document that can be used to reproduce your findings in 500 years. 
+
 * **Errors**: Manual steps in data analysis (e.g., manually copy/pasting values into a table etc.) may introduce errors. R Markdown allows you to **automatize** such steps and/or avoid them.
+
 * **Revisions**: Revising a paper takes much less time if you have all the code you need in one place, i.e., one `.rmd` file. For instance, if you decide to exclude a subset of your data you simply need to insert one line of your code at the beginning and everything is rebuilt/re-estimated automatically.
 
 
 
 # Why Pagedown?
 
+Formatting texts as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word.
+
+The fairly new `pagedown` R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.
+
+While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library `Paged.js` which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown.
 
 
-
-
-\newpage
 # Prerequesites
 
-We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don't know what R Markdown is watch [this short video](https://vimeo.com/178485416). Also, there is an overview and template for a scientific paper written in R markdown by one of us two (Paul), which follows the same idea and structure just as this review ([github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/)). The template compiles information, operations, tips and tricks you will very likely need to create a well-formatted scientific paper with R markdown.
+We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don't know what R Markdown is there are many great resources (e.g. watch this [short video](https://vimeo.com/178485416)). Also, there is a template for a scientific paper written in R markdown by one of us two (Paul), which follows the same idea and structure just as this review ([github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/)). The template compiles information, operations, tips and tricks you will very likely need to create a well-formatted scientific paper with R markdown.
 
-Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch [this video](https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/) which is a record of a talk introducing R's pagedown given by Yihui Xie (who in addition to Romain Lesur developed R's pagedown package). If you are not in a video watching mood find the slides [here](https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1).
+Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch [this video](https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/) which is a record of a talk introducing `pagedown` given by Yihui Xie (who in addition to Romain Lesur developed the `pagedown` package). If you are not in a video watching mood find the slides [here](https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1).
 
 Then...
 
@@ -74,13 +71,13 @@ install.packages(c("rmarkdown", "knitr", "kableExtra",
 * ...also download the 4 styling files we created: `wp_paged.html`, `wp.css`, `wp-fonts.css` and `wp-pages.css`.
 * ...store all 8 files from above together in one folder (and use this folder as your working directory later on)
 * ...learn R and read about the other underlying components namely [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Latex](https://en.wikipedia.org/wiki/LaTeX).
-* ...pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need at least some basic skills in [CSS](https://www.w3schools.com/css/) and [HTML](https://www.w3schools.com/html/).
+* ...pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need to at least gain some basic skills in [CSS](https://www.w3schools.com/css/) and [HTML](https://www.w3schools.com/html/).
 
 
 
 
 
-# Basics: Input and output files
+# Basics: Input files, output files and the YAML header
 
 All the files you need to produce the present PDF file are:
 
@@ -101,7 +98,7 @@ Basically, these are files you will need to specify in the YAML of your rmd-file
 * `wp-fonts.css`
 * `wp-pages.css`
 
-Take `paper.rmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line 18-22) to see how to specifiy these files.
+Take `paper.rmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line \#18 - \#22) to see how to specifiy these files.
 Basically, what happens here is that within the [jss_paged function](https://rdrr.io/cran/pagedown/man/jss_paged.html) we additionally specify that we want to use custom css and html.
 
 [Download these files](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper.rmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.rmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
@@ -181,7 +178,7 @@ stargazer(cars,
 
 Table \@ref(tab2) shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
 library(stargazer)
 model1 <- lm(speed ~ dist, data = cars)
 model2 <- lm(speed ~ dist, data = cars)

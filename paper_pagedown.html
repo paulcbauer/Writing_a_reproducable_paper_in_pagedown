@@ -135,7 +135,7 @@ Mannheim Centre for European Social Research
 <section class="abstract" property="dc:abstract">
 <h2 class="abstract-header">Abstract</h2>
 <div class="abstract-content">
-The present paper provides a template for a reproducible scientific paper written in R Markdown. Below I outline some of the “tricks”/code (e.g., referencing tables, sections etc.) I had to figure out to produce this document. The underlying files which produce this document can be downloaded here<span id="fn1" class="footnote" data-pagedown-footnote-number="1" style="white-space: pre-line;"><a href="https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing" class="uri">https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing</a></span>. I think I got pretty far but there is always room for improvement and more automatization, in parallel to the incredible developments in R and Rstudio (bookdown etc.). I intend to update this file when I discover more convenient code (you can follow any updates through the corresponding github repo<span id="fn2" class="footnote" data-pagedown-footnote-number="2" style="white-space: pre-line;"><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/" class="uri">https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/</a></span>).
+The present paper provides a template for a reproducible scientific paper created with R pagedown. Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be downloaded<span id="fn1" class="footnote" data-pagedown-footnote-number="1" style="white-space: pre-line;"><a href="https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing" class="uri">https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing</a></span>. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a “working paper.” We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding github repo<span id="fn2" class="footnote" data-pagedown-footnote-number="2" style="white-space: pre-line;"><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/" class="uri">https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/</a></span>).
 </div>
 <section class="keywords" role="list" aria-labelledby="keywords-header">
 <p><span id="keywords-header" class="keywords-heading" aria-level="3" role="heading">Keywords</span>: <span role="listitem">open science</span>, <span role="listitem">transparency</span>, <span role="listitem">replication</span>, <span role="listitem">R</span>, <span role="listitem">markdown</span>, <span role="listitem">pagedown</span>.</p>
@@ -149,20 +149,22 @@ The present paper provides a template for a reproducible scientific paper writte
 <h1><span class="header-section-number">1</span> Why reproducible research (in R)?</h1>
 <p>Some arguments…</p>
 <ul>
-<li><strong>Access</strong>: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge <span class="citation">(<a href="#ref-Kirsop2005-ro" role="doc-biblioref">Kirsop and Chan 2005</a>)</span>.</li>
-<li><strong>Reproducability</strong>: Even if you have written a study and analyzed the data yourself you will forget what you did after a few months. A fully reproducible setup will help you to trace back your own steps. Obviously, the same is true for other researchers who may want to understand your work and built on it. It may sound like a joke but why not aim for a document that can be used to reproduce your findings in 500 years.</li>
-<li><strong>Errors</strong>: Manual steps in data analysis (e.g., manually copy/pasting values into a table etc.) may introduce errors. R Markdown allows you to <strong>automatize</strong> such steps and/or avoid them.</li>
-<li><strong>Revisions</strong>: Revising a paper takes much less time if you have all the code you need in one place, i.e., one <code>.rmd</code> file. For instance, if you decide to exclude a subset of your data you simply need to insert one line of your code at the beginning and everything is rebuilt/re-estimated automatically.</li>
+<li><p><strong>Access</strong>: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge <span class="citation">(<a href="#ref-Kirsop2005-ro" role="doc-biblioref">Kirsop and Chan 2005</a>)</span>.</p></li>
+<li><p><strong>Reproducability</strong>: Even if you have written a study and analyzed the data yourself you will forget what you did after a few months. A fully reproducible setup will help you to trace back your own steps. Obviously, the same is true for other researchers who may want to understand your work and built on it. It may sound like a joke but why not aim for a document that can be used to reproduce your findings in 500 years.</p></li>
+<li><p><strong>Errors</strong>: Manual steps in data analysis (e.g., manually copy/pasting values into a table etc.) may introduce errors. R Markdown allows you to <strong>automatize</strong> such steps and/or avoid them.</p></li>
+<li><p><strong>Revisions</strong>: Revising a paper takes much less time if you have all the code you need in one place, i.e., one <code>.rmd</code> file. For instance, if you decide to exclude a subset of your data you simply need to insert one line of your code at the beginning and everything is rebuilt/re-estimated automatically.</p></li>
 </ul>
 </div>
 <div id="why-pagedown" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Why Pagedown?</h1>
-<div class="page-break-after"></div>
+<p>Formatting texts as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word.</p>
+<p>The fairly new <code>pagedown</code> R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.</p>
+<p>While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library <code>Paged.js</code> which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown.</p>
 </div>
 <div id="prerequesites" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Prerequesites</h1>
-<p>We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don’t know what R Markdown is watch this short video<span id="fn4" class="footnote" data-pagedown-footnote-number="4" style="white-space: pre-line;"><a href="https://vimeo.com/178485416" class="uri">https://vimeo.com/178485416</a></span>. Also, there is an overview and template for a scientific paper written in R markdown by one of us two (Paul), which follows the same idea and structure just as this review (github repo<span id="fn5" class="footnote" data-pagedown-footnote-number="5" style="white-space: pre-line;"><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/" class="uri">https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/</a></span>). The template compiles information, operations, tips and tricks you will very likely need to create a well-formatted scientific paper with R markdown.</p>
-<p>Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch this video<span id="fn6" class="footnote" data-pagedown-footnote-number="6" style="white-space: pre-line;"><a href="https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/" class="uri">https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/</a></span> which is a record of a talk introducing R’s pagedown given by Yihui Xie (who in addition to Romain Lesur developed R’s pagedown package). If you are not in a video watching mood find the slides here<span id="fn7" class="footnote" data-pagedown-footnote-number="7" style="white-space: pre-line;"><a href="https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1" class="uri">https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1</a></span>.</p>
+<p>We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don’t know what R Markdown is there are many great resources (e.g. watch this short video<span id="fn4" class="footnote" data-pagedown-footnote-number="4" style="white-space: pre-line;"><a href="https://vimeo.com/178485416" class="uri">https://vimeo.com/178485416</a></span>). Also, there is a template for a scientific paper written in R markdown by one of us two (Paul), which follows the same idea and structure just as this review (github repo<span id="fn5" class="footnote" data-pagedown-footnote-number="5" style="white-space: pre-line;"><a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/" class="uri">https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/</a></span>). The template compiles information, operations, tips and tricks you will very likely need to create a well-formatted scientific paper with R markdown.</p>
+<p>Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch this video<span id="fn6" class="footnote" data-pagedown-footnote-number="6" style="white-space: pre-line;"><a href="https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/" class="uri">https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/</a></span> which is a record of a talk introducing <code>pagedown</code> given by Yihui Xie (who in addition to Romain Lesur developed the <code>pagedown</code> package). If you are not in a video watching mood find the slides here<span id="fn7" class="footnote" data-pagedown-footnote-number="7" style="white-space: pre-line;"><a href="https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1" class="uri">https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1</a></span>.</p>
 <p>Then…</p>
 <ul>
 <li>…install R<span id="fn8" class="footnote" data-pagedown-footnote-number="8" style="white-space: pre-line;"><a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></span> and Rstudio<span id="fn9" class="footnote" data-pagedown-footnote-number="9" style="white-space: pre-line;"><a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a></span> (most recent versions) <span class="citation">(<a href="#ref-R2017" role="doc-biblioref">R Core Team 2017</a>; <a href="#ref-Rstudio2015" role="doc-biblioref">RStudio Team 2015</a>)</span>.</li>
@@ -179,11 +181,11 @@ R+                    &quot;stargazer&quot;, &quot;modelsummary&quot;, &quot;plo
 <li>…also download the 4 styling files we created: <code>wp_paged.html</code>, <code>wp.css</code>, <code>wp-fonts.css</code> and <code>wp-pages.css</code>.</li>
 <li>…store all 8 files from above together in one folder (and use this folder as your working directory later on)</li>
 <li>…learn R and read about the other underlying components namely Markdown<span id="fn11" class="footnote" data-pagedown-footnote-number="11" style="white-space: pre-line;"><a href="https://en.wikipedia.org/wiki/Markdown" class="uri">https://en.wikipedia.org/wiki/Markdown</a></span>, R Markdown<span id="fn12" class="footnote" data-pagedown-footnote-number="12" style="white-space: pre-line;"><a href="https://rmarkdown.rstudio.com/lesson-1.html" class="uri">https://rmarkdown.rstudio.com/lesson-1.html</a></span> and Latex<span id="fn13" class="footnote" data-pagedown-footnote-number="13" style="white-space: pre-line;"><a href="https://en.wikipedia.org/wiki/LaTeX" class="uri">https://en.wikipedia.org/wiki/LaTeX</a></span>.</li>
-<li>…pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need at least some basic skills in CSS<span id="fn14" class="footnote" data-pagedown-footnote-number="14" style="white-space: pre-line;"><a href="https://www.w3schools.com/css/" class="uri">https://www.w3schools.com/css/</a></span> and HTML<span id="fn15" class="footnote" data-pagedown-footnote-number="15" style="white-space: pre-line;"><a href="https://www.w3schools.com/html/" class="uri">https://www.w3schools.com/html/</a></span>.</li>
+<li>…pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need to at least gain some basic skills in CSS<span id="fn14" class="footnote" data-pagedown-footnote-number="14" style="white-space: pre-line;"><a href="https://www.w3schools.com/css/" class="uri">https://www.w3schools.com/css/</a></span> and HTML<span id="fn15" class="footnote" data-pagedown-footnote-number="15" style="white-space: pre-line;"><a href="https://www.w3schools.com/html/" class="uri">https://www.w3schools.com/html/</a></span>.</li>
 </ul>
 </div>
-<div id="basics-input-and-output-files" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Basics: Input and output files</h1>
+<div id="basics-input-files-output-files-and-the-yaml-header" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Basics: Input files, output files and the YAML header</h1>
 <p>All the files you need to produce the present PDF file are:</p>
 <ol style="list-style-type: decimal">
 <li>the input files:</li>
@@ -207,7 +209,7 @@ R+                    &quot;stargazer&quot;, &quot;modelsummary&quot;, &quot;plo
 <li><code>wp-fonts.css</code></li>
 <li><code>wp-pages.css</code></li>
 </ul>
-<p>Take <code>paper.rmd</code> (the underlying R Markdown file of this pdf) and have a look at the YAML (line 18-22) to see how to specifiy these files.
+<p>Take <code>paper.rmd</code> (the underlying R Markdown file of this pdf) and have a look at the YAML (line #18 - #22) to see how to specifiy these files.
 Basically, what happens here is that within the jss_paged function<span id="fn17" class="footnote" data-pagedown-footnote-number="17" style="white-space: pre-line;"><a href="https://rdrr.io/cran/pagedown/man/jss_paged.html" class="uri">https://rdrr.io/cran/pagedown/man/jss_paged.html</a></span> we additionally specify that we want to use custom css and html.</p>
 <p>Download these files<span id="fn18" class="footnote" data-pagedown-footnote-number="18" style="white-space: pre-line;"><a href="https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing" class="uri">https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing</a></span> and save them into a folder. Close R/Rstudio and directly open <code>paper.rmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.rmd</code> and the other files.<span id="fn19" class="footnote" data-pagedown-footnote-number="19" style="white-space: pre-line;">You can always check your working directory in R with <code>getwd()</code>.</span></p>
 <p>Once you run/compile the <code>paper.rmd</code> file in Rstudio it creates mainly one output files:</p>
@@ -1769,42 +1771,42 @@ Figure 10.2: Miles per gallon according to the weight
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-hlavac2013stargazer" class="csl-entry">
-Hlavac M (2013). <span>“Stargazer: LaTeX Code and ASCII Text for Well-Formatted Regression and Summary Statistics Tables.”</span> <em>URL: Http://CRAN. R-Project. Org/Package= Stargazer</em>,.
+Hlavac, Marek. 2013. <span>“Stargazer: LaTeX Code and ASCII Text for Well-Formatted Regression and Summary Statistics Tables.”</span> <em>URL: Http://CRAN. R-Project. Org/Package= Stargazer</em>.
 </div>
 <div id="ref-Kirsop2005-ro" class="csl-entry">
-Kirsop B, Chan L (2005). <span>“Transforming Access to Research Literature for Developing Countries.”</span> <em>Serials Review</em>, <strong>31</strong>(4), 246–255.
+Kirsop, Barbara and Leslie Chan. 2005. <span>“Transforming Access to Research Literature for Developing Countries.”</span> <em>Serials Review</em> 31(4):246–55.
 </div>
 <div id="ref-R2017" class="csl-entry">
-R Core Team (2017). <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing, Vienna, Austria. Retrieved from <a href="https://www.R-project.org/">https://www.R-project.org/</a>
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
 </div>
 <div id="ref-Rstudio2015" class="csl-entry">
-RStudio Team (2015). <em>RStudio: Integrated Development Environment for r</em>. RStudio, Inc., Boston, MA. Retrieved from <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>
+RStudio Team. 2015. <em>RStudio: Integrated Development Environment for r</em>. Boston, MA: RStudio, Inc.
 </div>
 <div id="ref-plotly" class="csl-entry">
-Sievert C, Parmer C, Hocking T, Chamberlain S, Ram K, Corvellec M, Despouy P (2017). <em>Plotly: Create Interactive Web Graphics via ’Plotly.js’</em>. Retrieved from <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a>
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2017. <em>Plotly: Create Interactive Web Graphics via ’Plotly.js’</em>.
 </div>
 <div id="ref-knitr3" class="csl-entry">
-Xie Y (2014). <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing reproducible computational research</em>, eds. V Stodden, F Leisch, and RD Peng,. Chapman; Hall/CRC. Retrieved from <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>
+Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> in <em>Implementing reproducible computational research</em>, edited by V. Stodden, F. Leisch, and R. D. Peng. Chapman; Hall/CRC.
 </div>
 <div id="ref-knitr2" class="csl-entry">
-Xie Y (2015). <em>Dynamic Documents with <span>R</span> and Knitr</em> 2nd ed. Chapman; Hall/CRC, Boca Raton, Florida. Retrieved from <a href="https://yihui.name/knitr/">https://yihui.name/knitr/</a>
+Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC.
 </div>
 <div id="ref-bookdown2" class="csl-entry">
-Xie Y (2016). <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Chapman; Hall/CRC, Boca Raton, Florida. Retrieved from <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>
+Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC.
 </div>
 <div id="ref-bookdown1" class="csl-entry">
-Xie Y (2017). <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. Retrieved from <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>
+Xie, Yihui. 2017. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>.
 </div>
 <div id="ref-knitr1" class="csl-entry">
-Xie Y (2018). <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. Retrieved from <a href="https://yihui.name/knitr/">https://yihui.name/knitr/</a>
+Xie, Yihui. 2018. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>.
 </div>
 <div id="ref-xaringan" class="csl-entry">
-Xie Y (2021). <em>Xaringan: Presentation Ninja</em>. Retrieved from <a href="https://CRAN.R-project.org/package=xaringan">https://CRAN.R-project.org/package=xaringan</a>
+Xie, Yihui. 2021. <em>Xaringan: Presentation Ninja</em>.
 </div>
 <div id="ref-kableextra" class="csl-entry">
-Zhu H (2017). <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. Retrieved from <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>
+Zhu, Hao. 2017. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>.
 </div>
 </div>
 <!--  to generate a citation entry for BibTeX, you can pass the returned object of citation() to toBibtex(), e.g. toBibtex(citation("xaringan")). Then  copy the output to a .bib file and add a unique citation key -->
