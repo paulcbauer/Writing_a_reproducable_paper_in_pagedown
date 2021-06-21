@@ -141,7 +141,7 @@ p {
   orphans: 3;
   text-align: justify;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 150%; /* line height */
   margin: 7px 0;
 }
 a {
@@ -177,7 +177,7 @@ main img {
   border-width: 0.5px;
 }
 sub, sup {
-  line-height: 0.75;
+  line-height: 1.5; /*line height*/
 }
 .table-container {
   break-inside: avoid;
