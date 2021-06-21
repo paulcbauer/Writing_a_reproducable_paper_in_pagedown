@@ -18,8 +18,8 @@
   position: running(runningTitle);
 }
 
-@page :left {
-  @top-left {
+@page {
+  @bottom-right {
     content: counter(page);
   }
   @top-center {
@@ -31,17 +31,4 @@
 
 .pagedjs_left_page .pagedjs_margin-top-center {
   font-size: 16px;
-}
-
-/* right page */
-@page :right {
-  @top-right {
-    content: counter(page);
-  }
-  @top-center {
-    content: "Journal of Statistical Software";
-    width: 150mm;
-    font-size: 16px;
-    font-style: italic;
-  }
 }
