@@ -8,7 +8,7 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* article header */
@@ -117,8 +117,8 @@ main {
   padding-right: 6px;
 }
 .level1 h1 {
-  text-align: center;
-  font-size: 20px;
+  text-align: left;
+  font-size: 14px;
   margin-bottom: 16px;
 }
 .level1:not(:first-child) {
@@ -128,7 +128,7 @@ main {
   margin-top: 0;
 }
 .level2 h2 {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 /* main content */
@@ -140,7 +140,7 @@ p {
   widows: 3;
   orphans: 3;
   text-align: justify;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 16px;
   margin: 7px 0;
 }

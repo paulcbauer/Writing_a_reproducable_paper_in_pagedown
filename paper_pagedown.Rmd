@@ -79,7 +79,7 @@ install.packages(c("rmarkdown", "knitr", "kableExtra",
 
 
 
-\newpage
+
 # Basics: Input and output files
 
 All the files you need to produce the present PDF file are:
