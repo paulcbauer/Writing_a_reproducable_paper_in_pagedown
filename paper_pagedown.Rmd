@@ -19,7 +19,7 @@ output:
   pagedown::jss_paged:
     template: wp_paged.html
     self_contained: true
-    css: ['jss.css', 'jss-fonts.css', 'jss-page.css']
+    css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
 # uncomment this line to produce HTML and PDF in RStudio:
 knit: pagedown::chrome_print
 ---
