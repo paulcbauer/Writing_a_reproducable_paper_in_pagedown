@@ -123,8 +123,6 @@ By using pagedown's `chrome_print` function in the YAML (line \#25) your html ba
 Both outputs will be saved in your working directory.
 
 
-
-\newpage
 # Referencing within your document
 
 To see how referencing works simply see the different examples for figures, tables and sections below. For instance in Section \@ref(sec:tables) you can find different ways of referencing tables. The code of the underlying `paper.rmd` will show you how I referenced Section \@ref(sec:tables) right here namely with '`Section \@ref(sec:tables)`'.
