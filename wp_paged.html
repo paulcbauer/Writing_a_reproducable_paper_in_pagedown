@@ -150,13 +150,14 @@ $for(include-before)$
 $include-before$
 $endfor$
 
-
+<br><br><br><br>
 
 <article>
 
 $if(title)$
 <header id="$idprefix$header" class="title-page">
 <h1 class="title">$title$</h1>
+<br><br>
 <span class="shorttitle" style="display: none;" aria-hidden="true">$if(shorttitle)$$shorttitle$$else$$title$$endif$</span>
 $if(author)$
 <div class="authors-container" role="list">
@@ -187,6 +188,16 @@ $if(date)$
 <h2 class="date">$date$</h2>
 $endif$
 </section>
+
+<br><br>
+
+<section class="date" property="dc:date">
+$if(download-link)$
+<h2 class="date">$download-link$</h2>
+$endif$
+</section>
+
+<br><br>
 
 <section class="abstract" property="dc:abstract">
 $if(abstract)$
