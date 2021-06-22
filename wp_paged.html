@@ -168,7 +168,7 @@ $if(author.data.name)$
 $if(author.data.affiliation)$
 <br><span class="author-affil">
 $author.data.affiliation$
-<br><span class="author-email"> <! –– email (+) -->
+<br><span class="author-email"> <! –– CL&PB: email (+) -->
 $author.data.email$
 </span>
 $endif$
@@ -182,7 +182,8 @@ $endif$
 </header>
 $endif$
 
-<! –– add a date class to the front page (+)-->
+<br><br>
+<! –– CL&PB: add a date class to the front page (+)-->
 <section class="date" property="dc:date">
 $if(date)$
 <h2 class="date">$date$</h2>
@@ -191,9 +192,9 @@ $endif$
 
 <br><br>
 
-<section class="date" property="dc:date">
+<section class="download-link" property="dc:download-link">
 $if(download-link)$
-<h2 class="date">$download-link$</h2>
+<h2 class="download-link">$download-link$</h2>
 $endif$
 </section>
 

@@ -77,10 +77,18 @@ h1.title {
   font-size: 14px;
 }
 
-/* date (+) */
+/* CL&PB:date (+) */
 .date {
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
+  font-weight: normal;
+}
+
+/* CL&PB:download-link (+) */
+.download-link {
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
 }
 
 /* abstract */
@@ -98,7 +106,7 @@ h2.abstract-header {
   font-size: 13px;
   padding: 0 30px;
   text-align: justify;
-  text-indent: 16px;
+  text-indent: 0px; /* CL&PB */
 }
 .keywords p {
   margin-bottom: 8px;
