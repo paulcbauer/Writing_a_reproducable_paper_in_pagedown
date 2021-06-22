@@ -25,6 +25,18 @@ output:
 knit: pagedown::chrome_print
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE)
+# Use chache = TRUE if you want to speed up compilation
+# A function to allow for showing some of the inline code
+rinline <- function(code){
+  html <- '<code  class="r">``` `r CODE` ```</code>'
+  sub("CODE", code, html)
+}
+```
+
+
+
 \newpage
 # Why reproducible research (in R)?
 
@@ -42,7 +54,7 @@ Some arguments...
 
 # Why Pagedown?
 
-Formatting texts as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word.
+Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word.
 
 The fairly new `pagedown` R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.
 
@@ -99,17 +111,15 @@ Basically, these are files you will need to specify in the YAML of your rmd-file
 * `wp-pages.css`
 
 Take `paper.rmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line \#18 - \#22) to see how to specifiy these files.
-Basically, what happens here is that within the [jss_paged function](https://rdrr.io/cran/pagedown/man/jss_paged.html) we additionally specify that we want to use custom css and html.
+Basically, what happens here is that within the [jss_paged function](https://rdrr.io/cran/pagedown/man/jss_paged.html) we additionally specify that we want to use custom CSS and custom HTML.
 
-[Download these files](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper.rmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.rmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
+[Download these files](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing) and save them into a folder. Close R/Rstudio and directly open `paper_pagedown.rmd` with RStudio. Doing so assures that the working directory is set to the folder that contains `paper.rmd` and the other files.^[You can always check your working directory in R with `getwd()`.]
 
-Once you run/compile the `paper.rmd` file in Rstudio it creates mainly one output files:
+Once you run/compile the `paper.rmd` file in Rstudio it creates a output file called `paper_pagedown.html`.
 
-* `paper_pagedown.html` (the one you are reading right now)
+By using pagedown's `chrome_print` function in the YAML (line \#25) your html based web page will be printed to `paper_pagedown.pdf` (the one you are reading right now).
 
-By using pagedown's `chrome_print` function in the YAML (uncomment the line) your html based web page will be printed to be PDF (the PDF will be stored in your working directory)
-
-* `paper_pagedown.pdf`
+Both outputs will be saved in your working directory.
 
 
 
@@ -135,11 +145,11 @@ cat(paste("#", capture.output(sessionInfo()), "\n", collapse =""))
 
 
 
-\newpage
+
 # Data
 ## Import
 
-Generally, code is evaluated by inserting regular [R Markdown]{.proglang} blocks.
+Generally, code is evaluated by inserting regular `R Markdown` blocks. 
 
 ```{r}
 x <- 1:10
@@ -153,6 +163,40 @@ data <- read.csv("data.csv")
 head(data)
 ```
 
+## Putting your entire data into the .rmd file
+Applying the function `dput()` to an object gives you the code needed to reproduce that object. So you could paste that code into your `.rmd` file if you don't want to have extra data files. This makes sense were data files are small.
+
+```{r}
+dput(data)
+```
+
+You can then insert the dput output in your `.rmd` as below.
+
+```{r eval=FALSE, include=TRUE}
+data <- structure(list(X = 1:50, speed = c(4L, 4L, 7L, 7L, 8L, 9L, 10L, 
+10L, 10L, 11L, 11L, 12L, 12L, 12L, 12L, 13L, 13L, 13L, 13L, 14L, 
+14L, 14L, 14L, 15L, 15L, 15L, 16L, 16L, 17L, 17L, 17L, 18L, 18L, 
+18L, 18L, 19L, 19L, 19L, 20L, 20L, 20L, 20L, 20L, 22L, 23L, 24L, 
+24L, 24L, 24L, 25L), dist = c(2L, 10L, 4L, 22L, 16L, 10L, 18L, 
+26L, 34L, 17L, 28L, 14L, 20L, 24L, 28L, 26L, 34L, 34L, 46L, 26L, 
+36L, 60L, 80L, 20L, 26L, 54L, 32L, 40L, 32L, 40L, 50L, 42L, 56L, 
+76L, 84L, 36L, 46L, 68L, 32L, 48L, 52L, 56L, 64L, 66L, 54L, 70L, 
+92L, 93L, 120L, 85L)), 
+class = "data.frame", row.names = c(NA, 
+-50L))
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Tables {#sec:tables}
 
@@ -160,14 +204,18 @@ Producing good tables and referencing these tables within a R Markdown PDF has b
 
 ## stargazer(): Summary and regression tables
 
+I normally use `stargazer()` [@hlavac2013stargazer] which offers extreme flexibility regarding table output (see `?stargazer`). 
+
 ### Summary table with stargazer
 
-Table \@ref(tab1) shows summary stats of your data.^[To reference the table where you set the identifier in the stargazer function you only need to use the actual label, i.e., ´tab1´.] I normally use `stargazer()` [@hlavac2013stargazer] which offers extreme flexibility regarding table output (see `?stargazer`). 
+Table \@ref(tab:summary) shows summary stats of your data.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
 library(stargazer)
 stargazer(cars, 
-          label="tab1", 
+          title = "Summary table with stargazer",
+          label="tab:summary", 
           table.placement = "H", 
           type="html",
           header=FALSE)
@@ -249,6 +297,12 @@ datasummary_skim(mtcars_df, type="categorical", output="html")
 
 # Inline code & results
 
+Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `r rinline("round(coef(model1)[2], 2)")` will insert the coefficient as follows: `r round(coef(model1)[2], 2)`. Or `r rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
+Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set `cache = FALSE` at the beginning so that all the code chunks are rerun.    
+Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.
+
+
+
 
 
 
@@ -289,12 +343,12 @@ ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
 
 # Compiling 
 
-To view your paper, pagedown requires a web server (since it is based von paged.js)^(open-source library to paginate content in the browser). By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.
+To view your paper, pagedown requires a web server (since it is based von paged.js)^[open-source library to paginate content in the browser]. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.
 
-There are several options, depending on your intention.
+There are several options, depending on your intention:
 
-- click on the `Knit` button which by default will provide a html document in the RStudio viewer pane (the html will be stored in your working directory)
-- use pagedown's `chrome_print` function in the YAML (uncomment line \#24 of this `Rmd` file) if you want your html based web page to be (additionally to the html!) printed to be PDF (the PDF will be stored in your working directory)
+- click on the `Knit` button which by default will provide a HTML document in the RStudio viewer pane (the HTML will be stored in your working directory)
+- use pagedown's `chrome_print` function in the YAML (uncomment line \#24 of this `Rmd` file) if additionally you want your HTML based web page to be printed to be PDF (the PDF will be stored in your working directory)
 - to "live"-preview your pages do not click on the `Knit` button but use the **xaringan** [@xaringan] RStudio add-in _Infinite Moon Reader_. You can simply call the function `xaringan::inf_mr()` (within your console). This will launch a local web server via the **servr** package (Xie 2021a) and display your pages in the RStudio viewer. Each time you save your document (_Ctrl+S_) xaringan updates your pages in the viewer.
 
 - If you use the option `self_contained: false` (see line \#21 of this `Rmd` file) (change to true for a self-contained document, but it'll be a litte slower for Pandoc to render), don't click on the `Knit` button in RStudio. Use instead the **xaringan** [@xaringan] RStudio add-in _Infinite Moon Reader_.
