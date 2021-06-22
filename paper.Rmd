@@ -23,7 +23,7 @@ output:
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
     csl: american-sociological-association.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
-knit: pagedown::chrome_print
+#knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}

@@ -159,6 +159,7 @@ pre, code {
 }
 .r-chunk-code {
   font-style: italic;
+  background: #E7E7E2 /* color code chunk */
 }
 .smallcaps {
   font-variant: small-caps;
