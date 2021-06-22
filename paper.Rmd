@@ -40,7 +40,6 @@ rinline <- function(code){
 
 \newpage
 # Why reproducible research (in R)?
-<a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
 Some arguments...
 
 * **Access**: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge [@Kirsop2005-ro].
@@ -229,7 +228,7 @@ kable(mtcars[1:10,], row.names = TRUE,
 
 ## Tables with modelsummary
 
-The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easzz to embed them in dznmaic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
+The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easy to embed them in dynamic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
 
 ### Summarize numeric variables
 
