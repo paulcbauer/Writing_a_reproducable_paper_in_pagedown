@@ -1,6 +1,6 @@
 ---
-title: "Writing a reproducible paper in Pagedown^[Corresponding adress: mail@paulcbauer.eu]"
-shorttitle: "Writing a reproducible paper in Pagedown"
+title: "Writing a reproducible paper with R Markdown and Pagedown^[Corresponding adress: mail@paulcbauer.eu, camille.landesvatter@mzes.uni-mannheim.de]"
+shorttitle: "Writing a reproducible paper with R Markdown and Pagedown"
 author:
   - name: Paul C. Bauer
     affiliation: Mannheim Centre for European Social Research
@@ -9,7 +9,8 @@ author:
     affiliation: Mannheim Centre for European Social Research
     email: <camille.landesvatter@mzes.uni-mannheim.de>
 date: 'First version: 20 June, 2021<br>This version: `r format(Sys.time(), "%d %B, %Y")`'
-abstract: 'The present paper provides a template for a reproducible scientific paper created with R pagedown. Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be downloaded^[https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing]. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a "working paper". We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
+download-link: 'Download: https://osf.io/k8jhx'
+abstract: 'The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.^[Based on an earlier R Markdown template that can be downloaded under https://osf.io/q395s [see @Bauer2018-dl].] Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be downloaded^[https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing]. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a "working paper". We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
 # at least one keyword must be supplied
 keywords: [open science, transparency, replication, R, markdown, pagedown]
 links-to-footnotes: true
@@ -400,6 +401,7 @@ In the present document we use the style of the American Sociological Associatio
 
 The github directory contains a wide variety of citation style files depending on what discipline you work in.
 
+\newpage
 
 # References {-}
 
