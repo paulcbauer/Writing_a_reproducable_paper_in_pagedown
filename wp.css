@@ -130,6 +130,9 @@ main {
 .level2 h2 {
   font-size: 12px;
 }
+.level3 h3 {  /* font size for level 3 headers */
+  font-size: 12px;
+}
 
 /* main content */
 .section {
