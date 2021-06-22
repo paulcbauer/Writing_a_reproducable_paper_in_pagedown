@@ -110,7 +110,8 @@ h2.abstract-header {
 }
 .keywords p {
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 13px;
+  padding: 0 30px; /* CL&PB */
 }
 .keywords-heading {
   font-style: italic;
