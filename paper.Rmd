@@ -235,23 +235,26 @@ The `modelsummary` package provides a variety of tables and plots to summarize s
 
 Table \@ref(tab:table-3) shows a summary table for numeric variables. 
 
-```{r table-3, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+```{r table-3, echo=TRUE}
 library(modelsummary)
-library(kableExtra)
-options(modelsummary_html = 'kableExtra')
-datasummary_skim(mtcars, type="numeric", output="html", histogram=T) %>%
-    kable_styling()
+datasummary_skim(mtcars, 
+                 type="numeric", 
+                 histogram=T, 
+                 title = "Summary: Numeric variables")
 ```
+
 
 ### Summarize categorical variables
 
 Table \@ref(tab:table-4) shows a summary table for categorical variables. 
 
-```{r table-4, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+```{r table-4, echo=TRUE}
 # Create categorical variables
 mtcars$vs_cat <- as.logical(mtcars$vs)
 mtcars$cyl_cat <- as.factor(mtcars$cyl)
-datasummary_skim(mtcars, type="categorical", output="html")
+datasummary_skim(mtcars, 
+                 type="categorical", 
+                 title = "Summary: Categorical variables")
 ```
 
 ## Regression table
@@ -259,16 +262,14 @@ datasummary_skim(mtcars, type="categorical", output="html")
 
 Table \@ref(tab:table-5) shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
 
-```{r table-5, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+```{r table-5, echo=TRUE}
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
 M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
 models <- list("M1" = M1, "M2" =  M2, "M3" = M3)
 
-modelsummary(models, 
-         title = 'A regression table.') %>%
-    kable_styling()
+modelsummary(models, title = 'A regression table.')
 ```
 
 
