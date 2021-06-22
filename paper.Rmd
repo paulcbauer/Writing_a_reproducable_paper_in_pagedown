@@ -10,7 +10,7 @@ author:
     email: <camille.landesvatter@mzes.uni-mannheim.de>
 date: 'First version: 20 June, 2021<br>This version: `r format(Sys.time(), "%d %B, %Y")`'
 download-link: 'Download: https://osf.io/k8jhx'
-abstract: 'The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.^[Based on an earlier R Markdown template that uses Latex and can be downloaded under https://osf.io/q395s [see @Bauer2018-dl].] Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be downloaded^[https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing]. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a "working paper". We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
+abstract: 'The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.^[Based on an earlier R Markdown template that uses Latex and can be downloaded under https://osf.io/q395s [see @Bauer2018-dl].] Below we outline some of the "tricks"/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be [downloaded](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a "working paper". We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding [github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/)).'
 # at least one keyword must be supplied
 keywords: [open science, transparency, replication, R, markdown, pagedown]
 links-to-footnotes: true
@@ -23,7 +23,7 @@ output:
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
     csl: american-sociological-association.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
-#knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -40,7 +40,7 @@ rinline <- function(code){
 
 \newpage
 # Why reproducible research (in R)?
-
+<a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
 Some arguments...
 
 * **Access**: Research is normally funded by taxpayers (researchers are also taxpayers). Hence, it should be freely accessible to everyone without any barriers, e.g., without requiring commercial software. Importantly, researchers from developing countries are even more dependent on free access to knowledge [@Kirsop2005-ro].
@@ -83,7 +83,7 @@ install.packages(c("rmarkdown", "knitr", "kableExtra",
 * ...download the 4 input files we created --- `paper.rmd`, `references.bib`, `data.csv` and `american-sociological-association.csl` --- from [this folder](https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing). Ignore the other files.
 * ...also download the 4 styling files we created: `wp_paged.html`, `wp.css`, `wp-fonts.css` and `wp-pages.css`.
 * ...store all 8 files from above together in one folder (and use this folder as your working directory later on)
-* ...learn R and read about the other underlying components namely [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Latex](https://en.wikipedia.org/wiki/LaTeX).
+* ...learn R and read about the other underlying components namely [Markdown](https://en.wikipedia.org/wiki/Markdown), [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) and [Pagedown](https://pagedown.rbind.io/).
 * ...pagedown comes with several Rmd-templates (presentations, poster, thesis, etc.) and via this review we provide another template for a working paper style. If however you want to modify single aspects or create your own template, you will need to at least gain some basic skills in [CSS](https://www.w3schools.com/css/) and [HTML](https://www.w3schools.com/html/).
 
 
@@ -201,53 +201,13 @@ class = "data.frame", row.names = c(NA,
 
 Producing good tables and referencing these tables within a R Markdown PDF has been a hassle but got much better. Examples that you may use are shown below. The way you reference tables is slightly different, e.g., for `stargazer` the label is contained in the function, for `kable` it's contained in the chunk name.
 
-## stargazer(): Summary and regression tables
-
-I normally use `stargazer()` [@hlavac2013stargazer] which offers extreme flexibility regarding table output (see `?stargazer`). 
-
-### Summary table with stargazer
-
-Table \@ref(tab:summary) shows summary stats of your data.
-
-
-```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
-library(stargazer)
-stargazer(cars, 
-          title = "Summary table with stargazer",
-          label="tab:summary", 
-          table.placement = "H", 
-          type="html",
-          header=FALSE)
-```
-
-
-### Regression table with stargazer
-
-Table \@ref(tab2) shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
-
-```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
-library(stargazer)
-model1 <- lm(speed ~ dist, data = cars)
-model2 <- lm(speed ~ dist, data = cars)
-model3 <- lm(dist ~ speed, data = cars)
-
-stargazer(model1, model2, model3,
-          label="tab2",
-          table.placement = "H", 
-          column.labels = c("M1", "M2", "M3"),
-          type="html",
-          model.numbers = FALSE,
-          header=FALSE)
-```
-
-
 
 
 ## kable() and kable_styling()
 
-Another great function is `kable()` (`knitr` package) in combination with `kableExtra`. Table \@ref(tab:tab3) provides an example.^[To reference the table produced by the chunk you need to add ´tab:´ to the chunk name, i.e., ´tab:tab3´.]
+A great function is `kable()` (`knitr` package) in combination with `kableExtra`. Table \@ref(tab:table-2) provides an example. To reference the table produced by the chunk you need to add ´tab:´ to the chunk name, i.e., ´tab:table-2´ and would reference it by adding "`Table \@ref(tab:table-2)`" in your text.
 
-```{r tab3, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+```{r table-2, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
 library(knitr)
 library(kableExtra)
 
@@ -264,38 +224,60 @@ kable(mtcars[1:10,], row.names = TRUE,
 ```
 
 
-## Summary tables with modelsummary
 
-The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easzz to embed them in dznmaic documents.
 
-Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for.
 
-In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
+## Tables with modelsummary
+
+The `modelsummary` package provides a variety of tables and plots to summarize statistical models and data in R. Modellsummary plots and tables are highly customizable and they can be saved to almost all formats, e.g., HTML, PDF and Markdown. This makes ist especially easzz to embed them in dznmaic documents. Please look at the package's extensive [documentation](https://vincentarelbundock.github.io/modelsummary/index.html) where they also show examples for almost any plot or table you might be looking for. In this template we demonstrate an example for modelsummary's `datasummary` function. `Datasummary` creates frequency tables, crosstab tables, correlation tables, balance tables and many **more**.
 
 ### Summarize numeric variables
 
-Table \@ref(tab:tab4) shows a summary table for numeric variables. 
+Table \@ref(tab:table-3) shows a summary table for numeric variables. 
 
-```{r tab4, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+```{r table-3, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
 library(modelsummary)
-datasummary_skim(mtcars, type="numeric", output="html", histogram=T)
+library(kableExtra)
+options(modelsummary_html = 'kableExtra')
+datasummary_skim(mtcars, type="numeric", output="html", histogram=T) %>%
+    kable_styling()
 ```
 
 ### Summarize categorical variables
 
-Table \@ref(tab:tab5) shows a summary table for categorical variables. 
+Table \@ref(tab:table-4) shows a summary table for categorical variables. 
 
-```{r tab5, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
+```{r table-4, echo=TRUE, message=FALSE, warning=FALSE, results="asis"}
 # Create categorical variables
 mtcars$vs_cat <- as.logical(mtcars$vs)
 mtcars$cyl_cat <- as.factor(mtcars$cyl)
 datasummary_skim(mtcars, type="categorical", output="html")
 ```
 
+## Regression table
+
+
+Table \@ref(tab:table-5) shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
+
+```{r table-5, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+library(modelsummary)
+M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
+M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
+M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
+models <- list("M1" = M1, "M2" =  M2, "M3" = M3)
+
+modelsummary(models, 
+         title = 'A regression table.') %>%
+    kable_styling()
+```
+
+
+
+
 
 # Inline code & results
 
-Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `r rinline("round(coef(model1)[2], 2)")` will insert the coefficient as follows: `r round(coef(model1)[2], 2)`. Or `r rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
+Reproduction reaches new heights when you work with inline code. For instance, you can automatize the display of certain coefficients within the text. An example is to include estimates, e.g., the coefficient of `dist` of the model we ran above. `r rinline("round(coef(M1)[2], 2)")` will insert the coefficient as follows: `r round(coef(M1)[2], 2)`. Or `r rinline("3 + 7")` will insert a `r 3 + 7` in the text.      
 Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set `cache = FALSE` at the beginning so that all the code chunks are rerun.    
 Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.
 
