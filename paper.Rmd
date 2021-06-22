@@ -55,23 +55,23 @@ Some arguments...
 
 # Why Pagedown?
 
-Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word.
+Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word. However, if you have spent hours and hours debugging latex code (or getting it to run) you may be on the lookout for something new.
 
 The fairly new `pagedown` R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.
 
-While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library `Paged.js` which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown.
+While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library `Paged.js` which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown. In our view, Pagedown and the underlying technology may replace Latex in the long run.
 
 
 # Prerequesites
 
-We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don't know what R Markdown is there are many great resources (e.g. watch this [short video](https://vimeo.com/178485416)). Also, there is a template for a scientific paper written in R markdown by one of us two (Paul), which follows the same idea and structure just as this review ([github repo](https://github.com/paulcbauer/Writing_a_reproducable_paper_in_rmarkdown/)). The template compiles information, operations, tips and tricks you will very likely need to create a well-formatted scientific paper with R markdown.
+We assume that you are using R on a day-to-day basis and you may have even started to work in R Markdown. If you don't know what R Markdown is there are many great resources that you should use (e.g. watch this [short video](https://vimeo.com/178485416)). An older template [see @Bauer2018-dl; https://osf.io/q395s] on which this newer template is based, may provide a quick entry point to writing a reproducible with R Markdown and Latex.
 
 Based on R Markdown, Pagedown allows you to create custom and well-formatted (paged) HTML Documents. For a comprehensive overview watch [this video](https://www.rstudio.com/resources/rstudioconf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css/) which is a record of a talk introducing `pagedown` given by Yihui Xie (who in addition to Romain Lesur developed the `pagedown` package). If you are not in a video watching mood find the slides [here](https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1).
 
 Then...
 
 * ...install [R](https://www.r-project.org/) and [Rstudio](https://www.rstudio.com/) (most recent versions) [@R2017; @Rstudio2015].
-* ...install the "pagedown"-package from github using the code below.
+* ...install the "pagedown"-package from github using the code below [@Xie2021-bi; @Xie2021-ls].
 ```{r eval=FALSE, include=TRUE}
 remotes::install_github('rstudio/pagedown')
 ```
