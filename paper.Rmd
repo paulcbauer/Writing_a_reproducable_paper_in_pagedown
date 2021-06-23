@@ -17,13 +17,14 @@ links-to-footnotes: false
 paged-footnotes: true
 bibliography: references.bib
 output: 
+  html_document: #for plotly
   pagedown::jss_paged:
     template: wp_paged.html
     self_contained: true
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
     csl: american-sociological-association.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
-knit: pagedown::chrome_print
+#knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -35,7 +36,6 @@ rinline <- function(code){
   sub("CODE", code, html)
 }
 ```
-
 
 
 \newpage
@@ -305,8 +305,10 @@ But it turns out that it doesn't always work so well.
 Same is true for ggplot2 as you can see in Figure \@ref(fig:fig-2).
 
 ```{r fig-2, fig.align="center", fig.cap="Miles per gallon according to the weight", fig.pos="H", fig.width=6, fig.height=3, message=FALSE, warning=FALSE, paged.print=FALSE}
-mtcars$cyl <- as.factor(mtcars$cyl) # Convert cyl to factor
 library(ggplot2)
+
+mtcars$cyl <- as.factor(mtcars$cyl) # Convert cyl to factor
+
 ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
   labs(x="Weight (lb/1000)", y = "Miles/(US) gallon", 
        shape="Number of \n Cylinders") + theme_classic()
@@ -314,11 +316,26 @@ ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
 
 
 
+## Interactive graphs
+
+
+
+```{r , echo=FALSE, out.width='100%', message=FALSE, warning=FALSE}
+
+library(plotly)
+
+mtcars$cyl <- as.factor(mtcars$cyl) # Convert cyl to factor
+mtcars %>%
+  plot_ly(x=~wt,y=~mpg,color=~cyl) %>%
+  add_markers() %>% 
+  layout(xaxis=list(title="Weight (lb/1000)"), yaxis=list(title="Miles/(US) gallon"))
+```
+
 
 
 # Compiling the document
 
-To view your paper, pagedown requires a web server (since it is based von paged.js)^[open-source library to paginate content in the browser]. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.
+To view your paper, pagedown requires a web server (since it is based on paged.js)^[open-source library to paginate content in the browser]. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.
 
 There are several options, depending on your intention:
 
