@@ -131,7 +131,7 @@ To see how referencing works simply see the different examples for figures, tabl
 
 Software changes and gets updated, especially with an active developer community like that of R. Luckily you can always access [old versions of R](https://cran.r-project.org/bin/windows/base/old/) and old version of R packages in [the archive](https://cran.r-project.org/src/contrib/Archive/). In the archive you need to choose a particular package, e.g dplyr and search for the right version, e.g., `dplyr_0.2.tar.gz`. Then insert the path in the following function: `install.packages("https://....../dplyr_0.2.tar.gz", repos=NULL, type="source")`. Ideally, however, results will be simply reproducible in the most current R and package versions.
 
-I would recommend to use the command below and simply add it to the appendix as I did here in Appendix \@ref(sec:rsessioninfo). This will make sure you always provide the package versions that you used in the last compilation of your paper. For more advanced tools see [packrat](https://rstudio.github.io/packrat/).
+I would recommend to use the command below and simply add it to the appendix as I did here in Appendix \@ref(sec:rsessioninfo). This will make sure you always inform the reader about the package versions your relied on in your paper. For more advanced tools see [packrat](https://rstudio.github.io/packrat/).
 
 ```{r fig-versioning, echo=TRUE, eval=FALSE}
 cat(paste("#", capture.output(sessionInfo()), "\n", collapse ="")) 
