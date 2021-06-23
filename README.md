@@ -22,7 +22,7 @@ Basically, these are files you will need to specify in the YAML of your `paper.r
 * `wp-fonts.css`
 * `wp-pages.css`
 
-Take `paper.rmd` (the underlying R Markdown file of this pdf) and have a look at the YAML (line \#18 - \#22) to see how to specifiy these files.
+Take `paper.rmd` and have a look at the YAML (line \#18 - \#22) to see how to specifiy these files.
 Basically, what happens here is that within the [jss_paged function](https://rdrr.io/cran/pagedown/man/jss_paged.html) we additionally specify that we want to use custom CSS and custom HTML.
 
 Once you run/compile the `paper.rmd` file in Rstudio it creates a output file called `paper_pagedown.html`.
@@ -33,7 +33,6 @@ Both outputs will be saved in your working directory.
 
 
 
-We intend to update this file when we discover more convenient code (you can follow any updates within this repository).
+We intend to update this file when we discover more convenient code (you can follow any updates within this repository). 🕵️‍♀️
 
-Enjoy! 
  
