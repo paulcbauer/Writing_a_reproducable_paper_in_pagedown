@@ -233,7 +233,7 @@ The `modelsummary` package provides a variety of tables and plots to summarize s
 
 Table \@ref(tab:table-3) shows a summary table for numeric variables. 
 
-```{r table-3, echo=TRUE}
+```{r table-3, echo=TRUE, message=FALSE, warning=FALSE}
 library(modelsummary)
 datasummary_skim(mtcars, 
                  type="numeric", 
@@ -246,7 +246,7 @@ datasummary_skim(mtcars,
 
 Table \@ref(tab:table-4) shows a summary table for categorical variables. 
 
-```{r table-4, echo=TRUE}
+```{r table-4, echo=TRUE, message=FALSE, warning=FALSE}
 # Create categorical variables
 mtcars$vs_cat <- as.logical(mtcars$vs)
 mtcars$cyl_cat <- as.factor(mtcars$cyl)
@@ -276,7 +276,7 @@ tab_cat
 
 Table \@ref(tab:table-5) shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
 
-```{r table-5, echo=TRUE}
+```{r table-5, echo=TRUE, message=FALSE, warning=FALSE}
 library(modelsummary)
 M1 <- lm(Fertility ~ Education + Agriculture, data = swiss)
 M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
