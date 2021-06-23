@@ -17,14 +17,13 @@ links-to-footnotes: false
 paged-footnotes: true
 bibliography: references.bib
 output: 
-  html_document: #for plotly
   pagedown::jss_paged:
     template: wp_paged.html
     self_contained: true
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
     csl: american-sociological-association.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
-knit: pagedown::chrome_print
+#knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -314,22 +313,6 @@ ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
        shape="Number of \n Cylinders") + theme_classic()
 ``` 
 
-
-
-## Interactive graphs
-
-
-
-```{r , echo=FALSE, out.width='100%', message=FALSE, warning=FALSE}
-
-library(plotly)
-
-mtcars$cyl <- as.factor(mtcars$cyl) # Convert cyl to factor
-mtcars %>%
-  plot_ly(x=~wt,y=~mpg,color=~cyl) %>%
-  add_markers() %>% 
-  layout(xaxis=list(title="Weight (lb/1000)"), yaxis=list(title="Miles/(US) gallon"))
-```
 
 
 
