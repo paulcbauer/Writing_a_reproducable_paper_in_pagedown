@@ -32166,7 +32166,7 @@ body {font-family: 'Old Standard TT', Palatino, "Palatino Linotype", "Palatino L
 <article>
 
 <header id="header" class="title-page">
-<h1 class="title">Writing a reproducible paper with R Markdown and Pagedown<span id="fn2" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="2">Corresponding adress: <a href="mailto:mail@paulcbauer.eu" class="email">mail@paulcbauer.eu</a>, <a href="mailto:camille.landesvatter@mzes.uni-mannheim.de" class="email">camille.landesvatter@mzes.uni-mannheim.de</a></span></h1>
+<h1 class="title">Writing a reproducible paper with R Markdown and Pagedown<span id="fn2" class="footnote" data-pagedown-footnote-number="2" style="white-space: pre-line;">Corresponding adress: <a href="mailto:mail@paulcbauer.eu" class="email">mail@paulcbauer.eu</a>, <a href="mailto:camille.landesvatter@mzes.uni-mannheim.de" class="email">camille.landesvatter@mzes.uni-mannheim.de</a></span></h1>
 <br><br>
 <span class="shorttitle" style="display: none;" aria-hidden="true">Writing a reproducible paper with R Markdown and Pagedown</span>
 <div class="authors-container" role="list">
@@ -32192,7 +32192,7 @@ Mannheim Centre for European Social Research
 <br><br>
 <!-- –– CL&PB: add a date class to the front page (+)---->
 <section class="date" property="dc:date">
-<h2 class="date">First version: 20 June, 2021<br>This version: 23 Juni, 2021</h2>
+<h2 class="date">First version: 20 June, 2021<br>This version: 23 June, 2021</h2>
 </section>
 
 <br><br>
@@ -32206,7 +32206,7 @@ Mannheim Centre for European Social Research
 <section class="abstract" property="dc:abstract">
 <h2 class="abstract-header">Abstract</h2>
 <div class="abstract-content">
-The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.<span id="fn1" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="1">Based on an earlier R Markdown template that uses Latex and can be downloaded under <a href="https://osf.io/q395s" class="uri">https://osf.io/q395s</a> <span class="citation">(see Bauer <a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>.</span> Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">downloaded here</a>. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a “working paper”. We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and R pagedown. We intend to update this file when we discover more convenient code (you can follow any updates through the corresponding <a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/">github repo</a>).
+The present paper provides a template to write a reproducible scientific paper with R Markdown and Pagedown.<span id="fn1" class="footnote" data-pagedown-footnote-number="1" style="white-space: pre-line;">Based on an earlier R Markdown template that uses Latex and can be downloaded under <a href="https://osf.io/q395s" class="uri">https://osf.io/q395s</a> <span class="citation">(see Bauer <a href="#ref-Bauer2018-dl" role="doc-biblioref">2018</a>)</span>.</span> Below we outline some of the “tricks”/code (e.g., referencing tables, sections etc.) we had to figure out to produce this document. The underlying files which produce this document can be <a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">downloaded here</a>. Importantly, we also provide different CSS and HTML files that can be used to achieve a pdf output with the look of a “working paper”. We are convinced that in the future there will be many improvements and developments with regards to RStudio, R markdown and Pagedown. We intend to update this file when we discover more convenient code. You can follow any updates on the [github repository](<a href="https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/" class="uri">https://github.com/paulcbauer/Writing_a_reproducable_paper_in_pagedown/</a>.
 </div>
 <section class="keywords" role="list" aria-labelledby="keywords-header">
 <p><span id="keywords-header" class="keywords-heading" aria-level="3" role="heading">Keywords</span>: <span role="listitem">open science</span>, <span role="listitem">transparency</span>, <span role="listitem">replication</span>, <span role="listitem">R</span>, <span role="listitem">markdown</span>, <span role="listitem">pagedown</span>.</p>
@@ -32230,7 +32230,7 @@ The present paper provides a template to write a reproducible scientific paper w
 <h1><span class="header-section-number">2</span> Why Pagedown?</h1>
 <p>Formatting text as PDF is probably one of the most widespread standards in the scientific community, especially when it comes to submitting papers and similar documents. The traditional way to well-formatted and good-looking PDFs is often through LaTeX or Word. However, if you have spent hours and hours debugging latex code (or getting it to run) you may be on the lookout for something new.</p>
 <p>The fairly new <code>pagedown</code> R package takes a completely new approach. While the main purpose of pagedown is to create high-quality PDFs, the idea is to take advantage of modern web technologies (HTML/JSS/Javascript) with which one can design web pages and eventually print those to PDF.</p>
-<p>While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library <code>Paged.js</code> which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown. In our view, Pagedown and the underlying technology may replace Latex in the long run.</p>
+<p>While web pages are usually single-page scrollable documents, pagedown uses the JavaScript library <code>Paged.js</code> which allows documents to be paginated with elements like headers, footers and everything a readable scientific paper will need. Additionally, pagedown documents are based on R Markdown. In our view, Pagedown and the underlying technology may replace Latex in the long run. In the near future it should also be possible to produce a PDF with static graph and an equivalent html with interactive graps (see dicsussion <a href="https://github.com/rstudio/pagedown/pull/87">here</a>).</p>
 </div>
 <div id="prerequesites" class="section level1">
 <h1><span class="header-section-number">3</span> Prerequesites</h1>
@@ -32268,7 +32268,7 @@ R+                    &quot;stargazer&quot;, &quot;modelsummary&quot;, &quot;kni
 <li>I use paperpile to manage my references and export the <code>.bib</code> file into the folder that contains my <code>.rmd</code> file.</li>
 </ul></li>
 <li><code>data.csv</code> (some raw data).</li>
-<li><code>american-sociological-association.csl</code> (defines the style of your bibliography).<span id="fn3" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="3">You can download various citation style files from this webpage: <a href="https://github.com/citation-style-language/styles" class="uri">https://github.com/citation-style-language/styles</a>.</span></li>
+<li><code>american-sociological-association.csl</code> (defines the style of your bibliography).<span id="fn3" class="footnote" data-pagedown-footnote-number="3" style="white-space: pre-line;">You can download various citation style files from this webpage: <a href="https://github.com/citation-style-language/styles" class="uri">https://github.com/citation-style-language/styles</a>.</span></li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>the “styling” files:</li>
@@ -32282,7 +32282,7 @@ R+                    &quot;stargazer&quot;, &quot;modelsummary&quot;, &quot;kni
 </ul>
 <p>Take <code>paper.rmd</code> (the underlying R Markdown file of this pdf) and have a look at the YAML (line #18 - #22) to see how to specifiy these files.
 Basically, what happens here is that within the <a href="https://rdrr.io/cran/pagedown/man/jss_paged.html">jss_paged function</a> we additionally specify that we want to use custom CSS and custom HTML.</p>
-<p><a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">Download these files</a> and save them into a folder. Close R/Rstudio and directly open <code>paper_pagedown.rmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.rmd</code> and the other files.<span id="fn4" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="4">You can always check your working directory in R with <code>getwd()</code>.</span></p>
+<p><a href="https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing">Download these files</a> and save them into a folder. Close R/Rstudio and directly open <code>paper_pagedown.rmd</code> with RStudio. Doing so assures that the working directory is set to the folder that contains <code>paper.rmd</code> and the other files.<span id="fn4" class="footnote" data-pagedown-footnote-number="4" style="white-space: pre-line;">You can always check your working directory in R with <code>getwd()</code>.</span></p>
 <p>Once you run/compile the <code>paper.rmd</code> file in Rstudio it creates a output file called <code>paper_pagedown.html</code>.</p>
 <p>By using pagedown’s <code>chrome_print</code> function in the YAML (line #25) your html based web page will be printed to <code>paper_pagedown.pdf</code> (the one you are reading right now).</p>
 <p>Both outputs will be saved in your working directory.</p>
@@ -32306,55 +32306,44 @@ R&gt;   # or use message() instead of cat()</code></pre>
 <pre class="r r-chunk-code"><code>R&gt; x &lt;- 1:10
 R&gt; x</code></pre>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>Below we import an exemplary dataset (<a href="https://drive.google.com/drive/folders/1zJP3cNPrHN-gj0rcmbHQgg-XA0hqDXdd?usp=sharing">download</a>).</p>
+<p>Below we import an exemplary dataset (you can find <code>data.csv</code> in the folder with the other files).</p>
 <pre class="r r-chunk-code"><code>R&gt; data &lt;- read.csv(&quot;data.csv&quot;)
 R&gt; head(data)</code></pre>
-<pre><code>  X speed dist
-1 1     4    2
-2 2     4   10
-3 3     7    4
-4 4     7   22
-5 5     8   16
-6 6     9   10</code></pre>
+<pre><code>  Fertility Agriculture Examination Education Catholic Infant.Mortality
+1      80.2        17.0          15        12     9.96             22.2
+2      83.1        45.1           6         9    84.84             22.2
+3      92.5        39.7           5         5    93.40             20.2
+4      85.8        36.5          12         7    33.77             20.3
+5      76.9        43.5          17        15     5.16             20.6
+6      76.1        35.3           9         7    90.57             26.6</code></pre>
 </div>
 <div id="putting-your-entire-data-into-the-.rmd-file" class="section level2">
 <h2><span class="header-section-number">7.2</span> Putting your entire data into the .rmd file</h2>
 <p>Applying the function <code>dput()</code> to an object gives you the code needed to reproduce that object. So you could paste that code into your <code>.rmd</code> file if you don’t want to have extra data files. This makes sense were data files are small.</p>
-<pre class="r r-chunk-code"><code>R&gt; dput(data)</code></pre>
-<pre><code>structure(list(X = 1:50, speed = c(4L, 4L, 7L, 7L, 8L, 9L, 10L, 
-10L, 10L, 11L, 11L, 12L, 12L, 12L, 12L, 13L, 13L, 13L, 13L, 14L, 
-14L, 14L, 14L, 15L, 15L, 15L, 16L, 16L, 17L, 17L, 17L, 18L, 18L, 
-18L, 18L, 19L, 19L, 19L, 20L, 20L, 20L, 20L, 20L, 22L, 23L, 24L, 
-24L, 24L, 24L, 25L), dist = c(2L, 10L, 4L, 22L, 16L, 10L, 18L, 
-26L, 34L, 17L, 28L, 14L, 20L, 24L, 28L, 26L, 34L, 34L, 46L, 26L, 
-36L, 60L, 80L, 20L, 26L, 54L, 32L, 40L, 32L, 40L, 50L, 42L, 56L, 
-76L, 84L, 36L, 46L, 68L, 32L, 48L, 52L, 56L, 64L, 66L, 54L, 70L, 
-92L, 93L, 120L, 85L)), class = &quot;data.frame&quot;, row.names = c(NA, 
--50L))</code></pre>
+<pre class="r r-chunk-code"><code>R&gt; dput(data[1:5,]) # here we only take a subset</code></pre>
+<pre><code>structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
+45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
+), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
+93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
+20.6)), row.names = c(NA, 5L), class = &quot;data.frame&quot;)</code></pre>
 <p>You can then insert the dput output in your <code>.rmd</code> as below.</p>
-<pre class="r r-chunk-code"><code>R&gt; data &lt;- structure(list(X = 1:50, speed = c(4L, 4L, 7L, 7L, 8L, 9L, 10L, 
-R+ 10L, 10L, 11L, 11L, 12L, 12L, 12L, 12L, 13L, 13L, 13L, 13L, 14L, 
-R+ 14L, 14L, 14L, 15L, 15L, 15L, 16L, 16L, 17L, 17L, 17L, 18L, 18L, 
-R+ 18L, 18L, 19L, 19L, 19L, 20L, 20L, 20L, 20L, 20L, 22L, 23L, 24L, 
-R+ 24L, 24L, 24L, 25L), dist = c(2L, 10L, 4L, 22L, 16L, 10L, 18L, 
-R+ 26L, 34L, 17L, 28L, 14L, 20L, 24L, 28L, 26L, 34L, 34L, 46L, 26L, 
-R+ 36L, 60L, 80L, 20L, 26L, 54L, 32L, 40L, 32L, 40L, 50L, 42L, 56L, 
-R+ 76L, 84L, 36L, 46L, 68L, 32L, 48L, 52L, 56L, 64L, 66L, 54L, 70L, 
-R+ 92L, 93L, 120L, 85L)), 
-R+ class = &quot;data.frame&quot;, row.names = c(NA, 
-R+ -50L))</code></pre>
+<pre class="r r-chunk-code"><code>R&gt; data &lt;- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
+R+ 45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
+R+ ), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
+R+ 93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
+R+ 20.6)), class = &quot;data.frame&quot;, row.names = c(NA, -5L))</code></pre>
 </div>
 </div>
 <div id="sec:tables" class="section level1">
 <h1><span class="header-section-number">8</span> Tables</h1>
-<p>Producing good tables and referencing these tables within a R Markdown PDF has been a hassle but got much better. Examples that you may use are shown below. The way you reference tables is slightly different, e.g., for <code>stargazer</code> the label is contained in the function, for <code>kable</code> it’s contained in the chunk name.</p>
+<p>Producing good tables and referencing these tables within a R Markdown document has been a hassle but got much better. Examples that you may use are shown below.</p>
 <div id="tables-with-kable-and-kable_styling" class="section level2">
 <h2><span class="header-section-number">8.1</span> Tables with kable() and kable_styling()</h2>
 <p>A great function is <code>kable()</code> (<code>knitr</code> package) in combination with <code>kableExtra</code>. Table <a href="#tab:table-2">8.1</a> provides an example. To reference the table produced by the chunk you need to add ´tab:´ to the chunk name, i.e., ´tab:table-2´ and would reference it by adding “<code>Table \@ref(tab:table-2)</code>” in your text.</p>
 <pre class="r r-chunk-code"><code>R&gt; library(knitr)
 R&gt; library(kableExtra)
 R&gt; 
-R&gt; kable(mtcars[1:10,], row.names = TRUE, 
+R&gt; kable(swiss[1:10,], row.names = TRUE, 
 R+       caption = &#39;Table with kable() and kablestyling()&#39;, 
 R+       format = &quot;html&quot;, booktabs = T) %&gt;%
 R+         kable_styling(full_width = T, 
@@ -32371,419 +32360,254 @@ R+                       font_size = 10)</code></pre>
 <th style="text-align:left;">
 </th>
 <th style="text-align:right;">
-mpg
+Fertility
 </th>
 <th style="text-align:right;">
-cyl
+Agriculture
 </th>
 <th style="text-align:right;">
-disp
+Examination
 </th>
 <th style="text-align:right;">
-hp
+Education
 </th>
 <th style="text-align:right;">
-drat
+Catholic
 </th>
 <th style="text-align:right;">
-wt
-</th>
-<th style="text-align:right;">
-qsec
-</th>
-<th style="text-align:right;">
-vs
-</th>
-<th style="text-align:right;">
-am
-</th>
-<th style="text-align:right;">
-gear
-</th>
-<th style="text-align:right;">
-carb
+Infant.Mortality
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Mazda RX4
+Courtelary
 </td>
 <td style="text-align:right;">
-21.0
+80.2
+</td>
+<td style="text-align:right;">
+17.0
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+9.96
+</td>
+<td style="text-align:right;">
+22.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delemont
+</td>
+<td style="text-align:right;">
+83.1
+</td>
+<td style="text-align:right;">
+45.1
 </td>
 <td style="text-align:right;">
 6
 </td>
 <td style="text-align:right;">
-160.0
+9
 </td>
 <td style="text-align:right;">
-110
+84.84
 </td>
 <td style="text-align:right;">
-3.90
-</td>
-<td style="text-align:right;">
-2.620
-</td>
-<td style="text-align:right;">
-16.46
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
+22.2
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Mazda RX4 Wag
+Franches-Mnt
 </td>
 <td style="text-align:right;">
-21.0
+92.5
 </td>
 <td style="text-align:right;">
-6
+39.7
 </td>
 <td style="text-align:right;">
-160.0
+5
 </td>
 <td style="text-align:right;">
-110
+5
 </td>
 <td style="text-align:right;">
-3.90
+93.40
 </td>
 <td style="text-align:right;">
-2.875
-</td>
-<td style="text-align:right;">
-17.02
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
+20.2
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Datsun 710
+Moutier
 </td>
 <td style="text-align:right;">
-22.8
+85.8
 </td>
 <td style="text-align:right;">
-4
+36.5
 </td>
 <td style="text-align:right;">
-108.0
+12
 </td>
 <td style="text-align:right;">
-93
+7
 </td>
 <td style="text-align:right;">
-3.85
+33.77
 </td>
 <td style="text-align:right;">
-2.320
-</td>
-<td style="text-align:right;">
-18.61
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1
+20.3
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Hornet 4 Drive
+Neuveville
 </td>
 <td style="text-align:right;">
-21.4
+76.9
 </td>
 <td style="text-align:right;">
-6
+43.5
 </td>
 <td style="text-align:right;">
-258.0
+17
 </td>
 <td style="text-align:right;">
-110
+15
 </td>
 <td style="text-align:right;">
-3.08
+5.16
 </td>
 <td style="text-align:right;">
-3.215
-</td>
-<td style="text-align:right;">
-19.44
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
+20.6
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Hornet Sportabout
+Porrentruy
 </td>
 <td style="text-align:right;">
-18.7
+76.1
+</td>
+<td style="text-align:right;">
+35.3
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+90.57
+</td>
+<td style="text-align:right;">
+26.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Broye
+</td>
+<td style="text-align:right;">
+83.8
+</td>
+<td style="text-align:right;">
+70.2
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+92.85
+</td>
+<td style="text-align:right;">
+23.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Glane
+</td>
+<td style="text-align:right;">
+92.4
+</td>
+<td style="text-align:right;">
+67.8
+</td>
+<td style="text-align:right;">
+14
 </td>
 <td style="text-align:right;">
 8
 </td>
 <td style="text-align:right;">
-360.0
+97.16
 </td>
 <td style="text-align:right;">
-175
-</td>
-<td style="text-align:right;">
-3.15
-</td>
-<td style="text-align:right;">
-3.440
-</td>
-<td style="text-align:right;">
-17.02
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
+24.9
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Valiant
+Gruyere
 </td>
 <td style="text-align:right;">
-18.1
+82.4
 </td>
 <td style="text-align:right;">
-6
+53.3
 </td>
 <td style="text-align:right;">
-225.0
+12
 </td>
 <td style="text-align:right;">
-105
+7
 </td>
 <td style="text-align:right;">
-2.76
+97.67
 </td>
 <td style="text-align:right;">
-3.460
-</td>
-<td style="text-align:right;">
-20.22
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
+21.0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Duster 360
+Sarine
 </td>
 <td style="text-align:right;">
-14.3
+82.9
 </td>
 <td style="text-align:right;">
-8
+45.2
 </td>
 <td style="text-align:right;">
-360.0
+16
 </td>
 <td style="text-align:right;">
-245
+13
 </td>
 <td style="text-align:right;">
-3.21
-</td>
-<td style="text-align:right;">
-3.570
-</td>
-<td style="text-align:right;">
-15.84
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Merc 240D
+91.38
 </td>
 <td style="text-align:right;">
 24.4
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-146.7
-</td>
-<td style="text-align:right;">
-62
-</td>
-<td style="text-align:right;">
-3.69
-</td>
-<td style="text-align:right;">
-3.190
-</td>
-<td style="text-align:right;">
-20.00
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Merc 230
-</td>
-<td style="text-align:right;">
-22.8
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-140.8
-</td>
-<td style="text-align:right;">
-95
-</td>
-<td style="text-align:right;">
-3.92
-</td>
-<td style="text-align:right;">
-3.150
-</td>
-<td style="text-align:right;">
-22.90
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Merc 280
-</td>
-<td style="text-align:right;">
-19.2
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-167.6
-</td>
-<td style="text-align:right;">
-123
-</td>
-<td style="text-align:right;">
-3.92
-</td>
-<td style="text-align:right;">
-3.440
-</td>
-<td style="text-align:right;">
-18.30
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
 </td>
 </tr>
 </tbody>
@@ -32796,7 +32620,7 @@ Merc 280
 <h3><span class="header-section-number">8.2.1</span> Summarize numeric variables</h3>
 <p>Table <a href="#tab:table-3">8.2</a> shows a summary table for numeric variables.</p>
 <pre class="r r-chunk-code"><code>R&gt; library(modelsummary)
-R&gt; datasummary_skim(mtcars, 
+R&gt; datasummary_skim(swiss, 
 R+                  type=&quot;numeric&quot;, 
 R+                  histogram=T, 
 R+                  title = &quot;Summary: Numeric variables&quot;)</code></pre>
@@ -32836,28 +32660,28 @@ Max
 <tbody>
 <tr>
 <td style="text-align:left;">
-mpg
+Fertility
 </td>
 <td style="text-align:right;">
-25
+46
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-20.1
+70.1
 </td>
 <td style="text-align:right;">
-6.0
+12.5
 </td>
 <td style="text-align:right;">
-10.4
+35.0
 </td>
 <td style="text-align:right;">
-19.2
+70.4
 </td>
 <td style="text-align:right;">
-33.9
+92.5
 </td>
 <td style="text-align:right;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
@@ -32872,370 +32696,76 @@ mpg
     }
   </style>
 </defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.02" y="7.44" width="9.46" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.48" y="3.22" width="9.46" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.93" y="6.03" width="9.46" height="5.63" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="29.39" y="10.25" width="9.46" height="1.41" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.85" y="8.85" width="9.46" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.09" y="11.10" width="7.73" height="0.56" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.64" y="10.54" width="7.73" height="1.13" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.37" y="8.85" width="7.73" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.10" y="3.22" width="7.73" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.83" y="3.78" width="7.73" height="7.88" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.56" y="7.72" width="7.73" height="3.94" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.29" y="9.97" width="7.73" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect></g>
 </svg>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-cyl
+Agriculture
 </td>
 <td style="text-align:right;">
-3
+47
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-6.2
+50.7
 </td>
 <td style="text-align:right;">
-1.8
+22.7
 </td>
 <td style="text-align:right;">
-4.0
+1.2
 </td>
 <td style="text-align:right;">
-6.0
+54.1
+</td>
+<td style="text-align:right;">
+89.7
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.18" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.20" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="11.22" y="9.97" width="5.02" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.24" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.26" y="7.44" width="5.02" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.28" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.31" y="3.22" width="5.02" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.33" y="6.60" width="5.02" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.35" y="8.28" width="5.02" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Examination
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+16.5
 </td>
 <td style="text-align:right;">
 8.0
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="5.03" width="5.56" height="6.63" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.33" y="11.66" width="5.56" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="11.66" width="5.56" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.44" y="7.44" width="5.56" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="11.66" width="5.56" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="29.56" y="11.66" width="5.56" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="11.66" width="5.56" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.67" y="3.22" width="5.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-disp
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-230.7
-</td>
-<td style="text-align:right;">
-123.9
-</td>
-<td style="text-align:right;">
-71.1
-</td>
-<td style="text-align:right;">
-196.3
-</td>
-<td style="text-align:right;">
-472.0
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.56" y="5.63" width="5.54" height="6.03" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.98" y="3.22" width="5.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.52" y="6.84" width="5.54" height="4.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.07" y="10.46" width="5.54" height="1.21" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.61" y="6.84" width="5.54" height="4.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.15" y="6.84" width="5.54" height="4.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.70" y="6.84" width="5.54" height="4.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.24" y="10.46" width="5.54" height="1.21" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.78" y="9.25" width="5.54" height="2.41" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hp
-</td>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-146.7
-</td>
-<td style="text-align:right;">
-68.6
-</td>
-<td style="text-align:right;">
-52.0
-</td>
-<td style="text-align:right;">
-123.0
-</td>
-<td style="text-align:right;">
-335.0
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.46" y="4.06" width="7.85" height="7.60" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.32" y="3.22" width="7.85" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.17" y="6.60" width="7.85" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.02" y="7.44" width="7.85" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.87" y="10.82" width="7.85" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.73" y="10.82" width="7.85" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-drat
-</td>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3.6
-</td>
-<td style="text-align:right;">
-0.5
-</td>
-<td style="text-align:right;">
-2.8
-</td>
-<td style="text-align:right;">
-3.7
-</td>
-<td style="text-align:right;">
-4.9
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-3.55" y="8.85" width="10.24" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.69" y="5.33" width="10.24" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.93" y="3.22" width="10.24" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.17" y="7.44" width="10.24" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.42" y="10.96" width="10.24" height="0.70" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-wt
-</td>
-<td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3.2
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-1.5
-</td>
-<td style="text-align:right;">
-3.3
-</td>
-<td style="text-align:right;">
-5.4
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.63" y="7.91" width="5.68" height="3.75" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.31" y="7.91" width="5.68" height="3.75" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.99" y="7.91" width="5.68" height="3.75" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.68" y="3.22" width="5.68" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.36" y="5.09" width="5.68" height="6.57" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.04" y="10.72" width="5.68" height="0.94" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.72" y="11.66" width="5.68" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.40" y="8.85" width="5.68" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-qsec
-</td>
-<td style="text-align:right;">
-30
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-17.8
-</td>
-<td style="text-align:right;">
-1.8
-</td>
-<td style="text-align:right;">
-14.5
-</td>
-<td style="text-align:right;">
-17.7
-</td>
-<td style="text-align:right;">
-22.9
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.87" y="9.97" width="5.29" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.42" y="9.13" width="5.29" height="2.53" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.71" y="8.28" width="5.29" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="15.01" y="3.22" width="5.29" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.30" y="6.60" width="5.29" height="5.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.59" y="8.28" width="5.29" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.88" y="9.97" width="5.29" height="1.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.17" y="11.66" width="5.29" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.46" y="10.82" width="5.29" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-vs
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:right;">
-0.5
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="8.89" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.67" y="11.66" width="8.89" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.56" y="11.66" width="8.89" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="11.66" width="8.89" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.33" y="5.09" width="8.89" height="6.57" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-am
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:right;">
-0.5
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
-<defs>
-<style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style>
-</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="8.89" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.67" y="11.66" width="8.89" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.56" y="11.66" width="8.89" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="11.66" width="8.89" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.33" y="5.88" width="8.89" height="5.78" style="stroke-width: 0.38; fill: #000000;"></rect></g>
-</svg>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-gear
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3.7
-</td>
-<td style="text-align:right;">
-0.7
 </td>
 <td style="text-align:right;">
 3.0
 </td>
 <td style="text-align:right;">
-4.0
+16.0
 </td>
 <td style="text-align:right;">
-5.0
+37.0
 </td>
 <td style="text-align:right;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
@@ -33250,34 +32780,34 @@ gear
     }
   </style>
 </defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="11.11" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="4.91" width="11.11" height="6.76" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="11.66" width="11.11" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="8.85" width="11.11" height="2.81" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.14" y="9.06" width="6.54" height="2.60" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.39" y="7.76" width="6.54" height="3.90" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.93" y="3.22" width="6.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.46" y="5.17" width="6.54" height="6.50" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="6.47" width="6.54" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.54" y="9.71" width="6.54" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.07" y="10.36" width="6.54" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.61" y="11.01" width="6.54" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g>
 </svg>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-carb
+Education
 </td>
 <td style="text-align:right;">
-6
+19
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-2.8
+11.0
 </td>
 <td style="text-align:right;">
-1.6
+9.6
 </td>
 <td style="text-align:right;">
 1.0
 </td>
 <td style="text-align:right;">
-2.0
+8.0
 </td>
 <td style="text-align:right;">
-8.0
+53.0
 </td>
 <td style="text-align:right;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
@@ -33292,7 +32822,91 @@ carb
     }
   </style>
 </defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="6.35" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.13" y="10.17" width="6.35" height="1.49" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="6.69" width="6.35" height="4.97" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.83" y="11.66" width="6.35" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.17" y="11.17" width="6.35" height="0.50" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.52" y="11.66" width="6.35" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.87" y="11.17" width="6.35" height="0.50" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.92" y="3.22" width="8.55" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.47" y="8.28" width="8.55" height="3.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="10.82" width="8.55" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.56" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="11.66" width="8.55" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.66" y="11.38" width="8.55" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Catholic
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+41.1
+</td>
+<td style="text-align:right;">
+41.7
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:right;">
+15.1
+</td>
+<td style="text-align:right;">
+100.0
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.80" y="3.22" width="4.54" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.34" y="9.13" width="4.54" height="2.53" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.89" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.43" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.97" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.51" y="10.82" width="4.54" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.05" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.60" y="11.66" width="4.54" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.14" y="11.24" width="4.54" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.68" y="5.33" width="4.54" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Infant.Mortality
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+19.9
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+10.8
+</td>
+<td style="text-align:right;">
+20.0
+</td>
+<td style="text-align:right;">
+26.6
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.47" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.15" y="11.66" width="5.63" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.78" y="10.36" width="5.63" height="1.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.41" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.03" y="3.22" width="5.63" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.66" y="4.52" width="5.63" height="7.15" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.28" y="6.47" width="5.63" height="5.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.91" y="9.71" width="5.63" height="1.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.53" y="11.01" width="5.63" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect></g>
 </svg>
 </td>
 </tr>
@@ -33303,11 +32917,15 @@ carb
 <h3><span class="header-section-number">8.2.2</span> Summarize categorical variables</h3>
 <p>Table <a href="#tab:table-4">8.3</a> shows a summary table for categorical variables.</p>
 <pre class="r r-chunk-code"><code>R&gt; # Create categorical variables
-R&gt; mtcars$vs_cat &lt;- as.logical(mtcars$vs)
-R&gt; mtcars$cyl_cat &lt;- as.factor(mtcars$cyl)
+R&gt; swiss$Education_cat &lt;- cut(swiss$Education, 
+R+                    breaks=c(-Inf, 6, 12, Inf), 
+R+                    labels=c(&quot;low&quot;,&quot;middle&quot;,&quot;high&quot;))
+R&gt; swiss$Infant.Mortality_cat &lt;- cut(swiss$Infant.Mortality, 
+R+                    breaks=c(-Inf, 18.15, 21.70, Inf), 
+R+                    labels=c(&quot;low&quot;,&quot;middle&quot;,&quot;high&quot;))
 R&gt; 
 R&gt; library(flextable)
-R&gt; tab_cat &lt;- datasummary_skim(mtcars, 
+R&gt; tab_cat &lt;- datasummary_skim(swiss, 
 R+                             type=&quot;categorical&quot;, 
 R+                             title = &quot;Summary: Categorical variables&quot;,
 R+                             output = &#39;flextable&#39;)
@@ -33324,11 +32942,11 @@ R+   fontsize(size=10, j=1:4) %&gt;%
 R+   line_spacing(space = 0.3, part = &quot;all&quot;)
 R&gt; 
 R&gt; tab_cat</code></pre>
-<div class="tabwid"><style>.cl-8bc0c762{border-collapse:collapse;}.cl-8bb38a0c{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8bb38a0d{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8bb3b0f4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-8bb3ff00{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8bb3ff01{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8bb3ff02{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-8bc0c762">
+<div class="tabwid"><style>.cl-c073a0fc{border-collapse:collapse;}.cl-c066da70{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c066da71{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c066da72{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-c066da73{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c066da74{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c066da75{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-c073a0fc">
 <caption class="Table Caption">
 <span id="tab:table-4">Table 8.3: </span>Summary: Categorical variables
 </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-8bb3ff02"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0c"> </span></p></td><td class="cl-8bb3ff02"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0c">  </span></p></td><td class="cl-8bb3ff02"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0c">N</span></p></td><td class="cl-8bb3ff02"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0c">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">vs_cat</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">FALSE</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">18</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">56.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d"></span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">TRUE</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">14</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">43.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">cyl_cat</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">4</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">11</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">34.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d"></span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">6</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">7</span></p></td><td class="cl-8bb3ff00"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">21.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8bb3ff01"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d"></span></p></td><td class="cl-8bb3ff01"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">8</span></p></td><td class="cl-8bb3ff01"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">14</span></p></td><td class="cl-8bb3ff01"><p class="cl-8bb3b0f4"><span class="cl-8bb38a0d">43.8</span></p></td></tr></tbody></table></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-c066da75"><p class="cl-c066da72"><span class="cl-c066da70"> </span></p></td><td class="cl-c066da75"><p class="cl-c066da72"><span class="cl-c066da70">  </span></p></td><td class="cl-c066da75"><p class="cl-c066da72"><span class="cl-c066da70">N</span></p></td><td class="cl-c066da75"><p class="cl-c066da72"><span class="cl-c066da70">%</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">Education_cat</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">low</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">14</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">29.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71"></span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">middle</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">22</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71"></span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">high</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">11</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">23.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">Infant.Mortality_cat</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">low</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">12</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">25.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71"></span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">middle</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">23</span></p></td><td class="cl-c066da73"><p class="cl-c066da72"><span class="cl-c066da71">48.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c066da74"><p class="cl-c066da72"><span class="cl-c066da71"></span></p></td><td class="cl-c066da74"><p class="cl-c066da72"><span class="cl-c066da71">high</span></p></td><td class="cl-c066da74"><p class="cl-c066da72"><span class="cl-c066da71">12</span></p></td><td class="cl-c066da74"><p class="cl-c066da72"><span class="cl-c066da71">25.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <div id="regression-table" class="section level2">
@@ -33353,11 +32971,11 @@ R+   fontsize(size=10, j=1:4) %&gt;%
 R+   line_spacing(space = 0.3, part = &quot;all&quot;)
 R&gt; 
 R&gt; tab_reg</code></pre>
-<div class="tabwid"><style>.cl-8c33873e{border-collapse:collapse;}.cl-8c26bed2{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8c26e5c4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-8c275aa4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8c275aa5{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8c275aa6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8c275aa7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-8c33873e">
+<div class="tabwid"><style>.cl-c0c6cd04{border-collapse:collapse;}.cl-c0b8cce0{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c0b8f3c8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 0.3;background-color:transparent;}.cl-c0b941b6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0b941b7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0b941b8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0b941b9{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-c0c6cd04">
 <caption class="Table Caption">
 <span id="tab:table-5">Table 8.4: </span>A regression table.
 </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa7"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"> </span></p></td><td class="cl-8c275aa7"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">M1</span></p></td><td class="cl-8c275aa7"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">M2</span></p></td><td class="cl-8c275aa7"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">M3</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(Intercept)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">84.080</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">74.234</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">51.101</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(5.782)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(2.352)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(10.995)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">Education</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-0.963</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-0.788</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-0.857</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.189)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.129)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.173)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">Agriculture</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-0.066</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-0.026</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.080)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.073)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">Catholic</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.111</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.030)</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">Infant.Mortality</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">1.493</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2"></span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">(0.439)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa5"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">Num.Obs.</span></p></td><td class="cl-8c275aa5"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">47</span></p></td><td class="cl-8c275aa5"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">47</span></p></td><td class="cl-8c275aa5"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">47</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">R2</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.449</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.575</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.566</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">R2 Adj.</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.424</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.555</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">0.536</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">AIC</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">349.7</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">337.6</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">340.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">BIC</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">357.1</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">345.0</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">349.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">Log.Lik.</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-170.846</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-164.782</span></p></td><td class="cl-8c275aa4"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">-165.243</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c275aa6"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">F</span></p></td><td class="cl-8c275aa6"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">17.945</span></p></td><td class="cl-8c275aa6"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">29.705</span></p></td><td class="cl-8c275aa6"><p class="cl-8c26e5c4"><span class="cl-8c26bed2">18.699</span></p></td></tr></tbody></table></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b9"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"> </span></p></td><td class="cl-c0b941b9"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">M1</span></p></td><td class="cl-c0b941b9"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">M2</span></p></td><td class="cl-c0b941b9"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">M3</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(Intercept)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">84.080</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">74.234</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">51.101</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(5.782)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(2.352)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(10.995)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">Education</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-0.963</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-0.788</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-0.857</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.189)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.129)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.173)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">Agriculture</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-0.066</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-0.026</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.080)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.073)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">Catholic</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.111</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.030)</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">Infant.Mortality</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">1.493</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0"></span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">(0.439)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b7"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">Num.Obs.</span></p></td><td class="cl-c0b941b7"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">47</span></p></td><td class="cl-c0b941b7"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">47</span></p></td><td class="cl-c0b941b7"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">47</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">R2</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.449</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.575</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.566</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">R2 Adj.</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.424</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.555</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">0.536</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">AIC</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">349.7</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">337.6</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">340.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">BIC</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">357.1</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">345.0</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">349.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">Log.Lik.</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-170.846</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-164.782</span></p></td><td class="cl-c0b941b6"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">-165.243</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0b941b8"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">F</span></p></td><td class="cl-c0b941b8"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">17.945</span></p></td><td class="cl-c0b941b8"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">29.705</span></p></td><td class="cl-c0b941b8"><p class="cl-c0b8f3c8"><span class="cl-c0b8cce0">18.699</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <div id="inline-code-results" class="section level1">
@@ -33371,9 +32989,9 @@ Researchers often avoid referring to results in-text etc. because you easily for
 <div id="r-base-graphs" class="section level2">
 <h2><span class="header-section-number">10.1</span> R base graphs</h2>
 <p>Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the <code>.rmd</code> file. It’s relatively simple to insert R base graphs as you can see in Figure <a href="#fig:fig-1">10.1</a>.</p>
-<pre class="r r-chunk-code"><code>R&gt; plot(cars$speed, cars$dist)</code></pre>
+<pre class="r r-chunk-code"><code>R&gt; plot(swiss$Catholic, swiss$Fertility)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:fig-1"></span>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6wAAALBCAMAAABr+NxGAAAA51BMVEUAAAAAADoAAGYAOjoAOmYAOpAAZmYAZpAAZrY6AAA6AGY6OgA6Ojo6OmY6Zjo6ZmY6ZpA6ZrY6kJA6kLY6kNtmAABmADpmOgBmOjpmOmZmZjpmZmZmZpBmkLZmkNtmtrZmtttmtv+QOgCQZgCQZjqQZmaQkGaQkLaQtraQttuQtv+Q29uQ2/+2ZgC2Zjq2kDq2kGa2tpC2tra2ttu227a229u22/+2/9u2///bkDrbkGbbtmbbtpDbtrbbttvb25Db27bb29vb2//b/7bb/9vb////tmb/25D/27b/29v//7b//9v///8eeelMAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO3dbWPTWGKGYRlCmxTohhY2dDzZMmymAy1mQ6ZJ8RK6CduEgP3/f0/1ZvvIFnako/PySPf1YSeYRNbKvrF0dKQkcwASktArAOB+iBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayACGIFRBArIIJYARHECoggVkAEsQIiiBUQQayA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" alt="Scatterplot of Speed and Distance" width="470.4" />
+<img src="data:image/png;base64,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" alt="Scatterplot of Speed and Distance" width="470.4" />
 <p class="caption">
 Figure 10.1: Scatterplot of Speed and Distance
 </p>
@@ -33384,14 +33002,11 @@ Figure 10.1: Scatterplot of Speed and Distance
 <h2><span class="header-section-number">10.2</span> ggplot2 graphs</h2>
 <p>Same is true for ggplot2 as you can see in Figure <a href="#fig:fig-2">10.2</a>.</p>
 <pre class="r r-chunk-code"><code>R&gt; library(ggplot2)
-R&gt; 
-R&gt; mtcars$cyl &lt;- as.factor(mtcars$cyl) # Convert cyl to factor
-R&gt; 
-R&gt; ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
-R+   labs(x=&quot;Weight (lb/1000)&quot;, y = &quot;Miles/(US) gallon&quot;, 
-R+        shape=&quot;Number of \n Cylinders&quot;) + theme_classic()</code></pre>
+R&gt; ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) + geom_point() +
+R+   labs(x=&quot;Agriculture&quot;, y = &quot;Fertility&quot;, 
+R+        shape=&quot;Education&quot;) + theme_classic()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:fig-2"></span>
-<img src="data:image/png;base64,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" alt="Miles per gallon according to the weight" width="576" />
+<img src="data:image/png;base64,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" alt="Miles per gallon according to the weight" width="576" />
 <p class="caption">
 Figure 10.2: Miles per gallon according to the weight
 </p>
@@ -33400,7 +33015,7 @@ Figure 10.2: Miles per gallon according to the weight
 </div>
 <div id="compiling-the-document" class="section level1">
 <h1><span class="header-section-number">11</span> Compiling the document</h1>
-<p>To view your paper, pagedown requires a web server (since it is based on paged.js)<span id="fn5" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="5">open-source library to paginate content in the browser</span>. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.</p>
+<p>To view your paper, pagedown requires a web server (since it is based on paged.js)<span id="fn5" class="footnote" data-pagedown-footnote-number="5" style="white-space: pre-line;">open-source library to paginate content in the browser</span>. By compiling a document, R Studio will display your HTML page through a local web server, i.e., paged.js will work in RStudio Viewer.</p>
 <p>There are several options, depending on your intention:</p>
 <ul>
 <li><p>click on the <code>Knit</code> button in R Studio which by default will provide a HTML document in the RStudio viewer pane (the HTML will be stored in your working directory)</p></li>
@@ -33413,7 +33028,7 @@ Figure 10.2: Miles per gallon according to the weight
 <h1><span class="header-section-number">12</span> Good practices for reproducibility</h1>
 <p>Every researcher has his own optimized setup. Currently we would recommend the following:</p>
 <ul>
-<li>Keep all files of your project (that matter for producing the PDF) in one folder without subfolders. You can zip and directly upload that folder to the <a href="https://dataverse.harvard.edu/">Harvard dataverse</a>.<span id="fn6" class="footnote" style="white-space: pre-line;" data-pagedown-footnote-number="6">Another good folder setup would be to store all files needed as input files for the R Markdown manuscript in a subfolder called “input” and all output files that are produced apart from paper.html and paper.pdf in a subfolder called “output”.</span></li>
+<li>Keep all files of your project (that matter for producing the PDF) in one folder without subfolders. You can zip and directly upload that folder to the <a href="https://dataverse.harvard.edu/">Harvard dataverse</a>.<span id="fn6" class="footnote" data-pagedown-footnote-number="6" style="white-space: pre-line;">Another good folder setup would be to store all files needed as input files for the R Markdown manuscript in a subfolder called “input” and all output files that are produced apart from paper.html and paper.pdf in a subfolder called “output”.</span></li>
 <li>Make sure that filenames have a logic to them.
 <ul>
 <li>Main file with text/code: “paper.rmd”, “report.rmd”</li>
@@ -33529,7 +33144,7 @@ Figure 10.2: Miles per gallon according to the weight
 <div id="sec:rsessioninfo" class="section level2">
 <h2><span class="header-section-number">14.1</span> Attach R session info in appendix</h2>
 <p>Since R and R packages are constantly evolving you might want to add the R session info that contains information on the R version as well as the packages that are loaded.</p>
-<pre><code>R version 4.0.3 (2020-10-10)
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 17763)
 
@@ -33539,26 +33154,28 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.3      dplyr_1.0.5        gdtools_0.2.3      flextable_0.6.6   
-[5] modelsummary_0.8.1 kableExtra_1.3.4   knitr_1.33        
+[1] ggplot2_3.3.4      dplyr_1.0.6        gdtools_0.2.3      flextable_0.6.6   
+[5] modelsummary_0.8.0 kableExtra_1.3.4   knitr_1.33        
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0  xfun_0.22         bslib_0.2.5.1     purrr_0.3.4      
- [5] colorspace_2.0-0  generics_0.1.0    vctrs_0.3.7       htmltools_0.5.1.1
- [9] viridisLite_0.4.0 yaml_2.2.1        base64enc_0.1-3   utf8_1.2.1       
-[13] rlang_0.4.10      jquerylib_0.1.4   pillar_1.6.0      withr_2.4.2      
-[17] DBI_1.1.1         glue_1.4.2        uuid_0.1-4        lifecycle_1.0.0  
-[21] stringr_1.4.0     gtable_0.3.0      munsell_0.5.0     pagedown_0.14    
-[25] rvest_1.0.0       zip_2.1.1         evaluate_0.14     labeling_0.4.2   
-[29] fansi_0.4.2       highr_0.9         broom_0.7.6       Rcpp_1.0.6       
-[33] backports_1.2.1   scales_1.1.1      checkmate_2.0.0   webshot_0.5.2    
-[37] jsonlite_1.7.2    farver_2.1.0      systemfonts_1.0.2 digest_0.6.27    
-[41] stringi_1.5.3     bookdown_0.22     grid_4.0.3        tools_4.0.3      
-[45] magrittr_2.0.1    sass_0.4.0        tibble_3.1.0      tidyr_1.1.3      
-[49] crayon_1.4.1      pkgconfig_2.0.3   ellipsis_0.3.1    data.table_1.14.0
-[53] xml2_1.3.2        assertthat_0.2.1  rmarkdown_2.8     svglite_2.0.0    
-[57] httr_1.4.2        officer_0.3.18    rstudioapi_0.13   R6_2.5.0         
-[61] tables_0.9.6      compiler_4.0.3   </code></pre>
+ [1] Rcpp_1.0.6        svglite_2.0.0     tidyr_1.1.3       ps_1.6.0         
+ [5] assertthat_0.2.1  digest_0.6.27     utf8_1.2.1        R6_2.5.0         
+ [9] backports_1.2.1   evaluate_0.14     httr_1.4.2        highr_0.9        
+[13] pillar_1.6.1      rlang_0.4.11      uuid_0.1-4        rstudioapi_0.13  
+[17] data.table_1.14.0 jquerylib_0.1.4   checkmate_2.0.0   rmarkdown_2.9    
+[21] labeling_0.4.2    webshot_0.5.2     servr_0.22        stringr_1.4.0    
+[25] munsell_0.5.0     broom_0.7.7       compiler_4.1.0    httpuv_1.6.1     
+[29] xfun_0.24         pkgconfig_2.0.3   systemfonts_1.0.2 base64enc_0.1-3  
+[33] htmltools_0.5.1.1 websocket_1.4.0   tidyselect_1.1.1  tibble_3.1.2     
+[37] bookdown_0.22     fansi_0.5.0       viridisLite_0.4.0 crayon_1.4.1     
+[41] withr_2.4.2       later_1.2.0       tables_0.9.6      grid_4.1.0       
+[45] jsonlite_1.7.2    gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1        
+[49] magrittr_2.0.1    scales_1.1.1      zip_2.2.0         stringi_1.6.1    
+[53] farver_2.1.0      promises_1.2.0.1  xml2_1.3.2        bslib_0.2.5.1    
+[57] ellipsis_0.3.2    generics_0.1.0    vctrs_0.3.8       tools_4.1.0      
+[61] glue_1.4.2        officer_0.3.18    purrr_0.3.4       processx_3.5.2   
+[65] yaml_2.2.1        colorspace_2.0-1  rvest_1.0.0       pagedown_0.14    
+[69] sass_0.4.0       </code></pre>
 </div>
 <div id="all-the-code-in-the-paper" class="section level2">
 <h2><span class="header-section-number">14.2</span> All the code in the paper</h2>
@@ -33579,22 +33196,16 @@ R&gt; x &lt;- 1:10
 R&gt; x
 R&gt; data &lt;- read.csv(&quot;data.csv&quot;)
 R&gt; head(data)
-R&gt; dput(data)
-R&gt; data &lt;- structure(list(X = 1:50, speed = c(4L, 4L, 7L, 7L, 8L, 9L, 10L, 
-R+ 10L, 10L, 11L, 11L, 12L, 12L, 12L, 12L, 13L, 13L, 13L, 13L, 14L, 
-R+ 14L, 14L, 14L, 15L, 15L, 15L, 16L, 16L, 17L, 17L, 17L, 18L, 18L, 
-R+ 18L, 18L, 19L, 19L, 19L, 20L, 20L, 20L, 20L, 20L, 22L, 23L, 24L, 
-R+ 24L, 24L, 24L, 25L), dist = c(2L, 10L, 4L, 22L, 16L, 10L, 18L, 
-R+ 26L, 34L, 17L, 28L, 14L, 20L, 24L, 28L, 26L, 34L, 34L, 46L, 26L, 
-R+ 36L, 60L, 80L, 20L, 26L, 54L, 32L, 40L, 32L, 40L, 50L, 42L, 56L, 
-R+ 76L, 84L, 36L, 46L, 68L, 32L, 48L, 52L, 56L, 64L, 66L, 54L, 70L, 
-R+ 92L, 93L, 120L, 85L)), 
-R+ class = &quot;data.frame&quot;, row.names = c(NA, 
-R+ -50L))
+R&gt; dput(data[1:5,]) # here we only take a subset
+R&gt; data &lt;- structure(list(Fertility = c(80.2, 83.1, 92.5, 85.8, 76.9), Agriculture = c(17, 
+R+ 45.1, 39.7, 36.5, 43.5), Examination = c(15L, 6L, 5L, 12L, 17L
+R+ ), Education = c(12L, 9L, 5L, 7L, 15L), Catholic = c(9.96, 84.84, 
+R+ 93.4, 33.77, 5.16), Infant.Mortality = c(22.2, 22.2, 20.2, 20.3, 
+R+ 20.6)), class = &quot;data.frame&quot;, row.names = c(NA, -5L))
 R&gt; library(knitr)
 R&gt; library(kableExtra)
 R&gt; 
-R&gt; kable(mtcars[1:10,], row.names = TRUE, 
+R&gt; kable(swiss[1:10,], row.names = TRUE, 
 R+       caption = &#39;Table with kable() and kablestyling()&#39;, 
 R+       format = &quot;html&quot;, booktabs = T) %&gt;%
 R+         kable_styling(full_width = T, 
@@ -33605,16 +33216,20 @@ R+                       font_size = 10)
 R&gt; 
 R&gt; 
 R&gt; library(modelsummary)
-R&gt; datasummary_skim(mtcars, 
+R&gt; datasummary_skim(swiss, 
 R+                  type=&quot;numeric&quot;, 
 R+                  histogram=T, 
 R+                  title = &quot;Summary: Numeric variables&quot;)
 R&gt; # Create categorical variables
-R&gt; mtcars$vs_cat &lt;- as.logical(mtcars$vs)
-R&gt; mtcars$cyl_cat &lt;- as.factor(mtcars$cyl)
+R&gt; swiss$Education_cat &lt;- cut(swiss$Education, 
+R+                    breaks=c(-Inf, 6, 12, Inf), 
+R+                    labels=c(&quot;low&quot;,&quot;middle&quot;,&quot;high&quot;))
+R&gt; swiss$Infant.Mortality_cat &lt;- cut(swiss$Infant.Mortality, 
+R+                    breaks=c(-Inf, 18.15, 21.70, Inf), 
+R+                    labels=c(&quot;low&quot;,&quot;middle&quot;,&quot;high&quot;))
 R&gt; 
 R&gt; library(flextable)
-R&gt; tab_cat &lt;- datasummary_skim(mtcars, 
+R&gt; tab_cat &lt;- datasummary_skim(swiss, 
 R+                             type=&quot;categorical&quot;, 
 R+                             title = &quot;Summary: Categorical variables&quot;,
 R+                             output = &#39;flextable&#39;)
@@ -33651,14 +33266,11 @@ R+   line_spacing(space = 0.3, part = &quot;all&quot;)
 R&gt; 
 R&gt; tab_reg
 R&gt; 
-R&gt; plot(cars$speed, cars$dist)
+R&gt; plot(swiss$Catholic, swiss$Fertility)
 R&gt; library(ggplot2)
-R&gt; 
-R&gt; mtcars$cyl &lt;- as.factor(mtcars$cyl) # Convert cyl to factor
-R&gt; 
-R&gt; ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
-R+   labs(x=&quot;Weight (lb/1000)&quot;, y = &quot;Miles/(US) gallon&quot;, 
-R+        shape=&quot;Number of \n Cylinders&quot;) + theme_classic()
+R&gt; ggplot(swiss, aes(x=Catholic, y=Fertility, shape=Education_cat)) + geom_point() +
+R+   labs(x=&quot;Agriculture&quot;, y = &quot;Fertility&quot;, 
+R+        shape=&quot;Education&quot;) + theme_classic()
 R&gt; print(sessionInfo(), local = FALSE)</code></pre>
 </div>
 </div>
