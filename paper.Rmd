@@ -23,7 +23,7 @@ output:
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
     csl: american-sociological-association.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
-#knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -102,9 +102,9 @@ All the files you need to produce the present PDF file are:
 
 2. the "styling" files:
 
-Basically, these are files you will need to specify in the YAML of your rmd-file, so that R and ultimately pagedown recognizes the certain style you want to achieve for your document. With using our templates, you will create a document that has the "look" of a working paper. 
+Basically, these are files you will need to specify in the YAML of your rmd-file, so that R and ultimately pagedown recognizes the certain style you want to achieve for your document. With using our templates, you will create a document that has the "look" of a working paper (we based our files on the [jss_paged pagedown format](https://github.com/rstudio/pagedown#journal-of-statistical-software-article-pagedownjss_paged)). 
 
-* `wp_paged.html`
+* `wp_paged.html` (based on `jss_paged.html`)
 * `wp.css`
 * `wp-fonts.css`
 * `wp-pages.css`
@@ -289,7 +289,7 @@ Researchers often avoid referring to results in-text etc. because you easily for
 
 
 
-# Figures
+# Graphs
 
 ## R base graphs
 Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the `.rmd` file. It's relatively simple to insert R base graphs as you can see in Figure \@ref(fig:fig-1).
@@ -312,7 +312,6 @@ ggplot(mtcars, aes(x=wt, y=mpg, shape=cyl)) + geom_point() +
   labs(x="Weight (lb/1000)", y = "Miles/(US) gallon", 
        shape="Number of \n Cylinders") + theme_classic()
 ``` 
-
 
 
 

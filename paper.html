@@ -32158,7 +32158,7 @@ Mannheim Centre for European Social Research
 <br><br>
 <!-- –– CL&PB: add a date class to the front page (+)---->
 <section class="date" property="dc:date">
-<h2 class="date">First version: 20 June, 2021<br>This version: 23 Juni, 2021</h2>
+<h2 class="date">First version: 20 June, 2021<br>This version: 23 June, 2021</h2>
 </section>
 
 <br><br>
@@ -32239,9 +32239,9 @@ R+                    &quot;stargazer&quot;, &quot;modelsummary&quot;, &quot;kni
 <ol start="2" style="list-style-type: decimal">
 <li>the “styling” files:</li>
 </ol>
-<p>Basically, these are files you will need to specify in the YAML of your rmd-file, so that R and ultimately pagedown recognizes the certain style you want to achieve for your document. With using our templates, you will create a document that has the “look” of a working paper.</p>
+<p>Basically, these are files you will need to specify in the YAML of your rmd-file, so that R and ultimately pagedown recognizes the certain style you want to achieve for your document. With using our templates, you will create a document that has the “look” of a working paper (we based our files on the <a href="https://github.com/rstudio/pagedown#journal-of-statistical-software-article-pagedownjss_paged">jss_paged pagedown format</a>).</p>
 <ul>
-<li><code>wp_paged.html</code></li>
+<li><code>wp_paged.html</code> (based on <code>jss_paged.html</code>)</li>
 <li><code>wp.css</code></li>
 <li><code>wp-fonts.css</code></li>
 <li><code>wp-pages.css</code></li>
@@ -32761,9 +32761,8 @@ Merc 280
 <div id="summarize-numeric-variables" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Summarize numeric variables</h3>
 <p>Table <a href="#tab:table-3">8.2</a> shows a summary table for numeric variables.</p>
-<pre class="r r-chunk-code"><code>R&gt; library(modelsummary)</code></pre>
-<pre><code>Warning: package &#39;modelsummary&#39; was built under R version 4.0.5</code></pre>
-<pre class="r r-chunk-code"><code>R&gt; datasummary_skim(mtcars, 
+<pre class="r r-chunk-code"><code>R&gt; library(modelsummary)
+R&gt; datasummary_skim(mtcars, 
 R+                  type=&quot;numeric&quot;, 
 R+                  histogram=T, 
 R+                  title = &quot;Summary: Numeric variables&quot;)</code></pre>
@@ -33628,8 +33627,8 @@ F
 Inline code/results that depend on earlier objects in your document will automatically be updated once you change those objects. For instance, imagine a reviewer asks you to omit certain observations from your sample. You can simply do so in the beginning of your code and push play subsequently.. at time you might have to set <code>cache = FALSE</code> at the beginning so that all the code chunks are rerun.<br />
 Researchers often avoid referring to results in-text etc. because you easily forget to change them when revising a manuscript. At the same it can make an article much more informative and easier to read, e.g., if you discuss a coefficient in the text you can directly show it in the section in which you discuss it. Inline code allows you to do just that. R Markdown allows you to that do so in a reproducible and automatized manner.</p>
 </div>
-<div id="figures" class="section level1">
-<h1><span class="header-section-number">10</span> Figures</h1>
+<div id="graphs" class="section level1">
+<h1><span class="header-section-number">10</span> Graphs</h1>
 <div id="r-base-graphs" class="section level2">
 <h2><span class="header-section-number">10.1</span> R base graphs</h2>
 <p>Inserting figures can be slightly more complicated. Ideally, we would produce and insert them directly in the <code>.rmd</code> file. It’s relatively simple to insert R base graphs as you can see in Figure <a href="#fig:fig-1">10.1</a>.</p>
@@ -33791,7 +33790,7 @@ Figure 10.2: Miles per gallon according to the weight
 <div id="sec:rsessioninfo" class="section level2">
 <h2><span class="header-section-number">14.1</span> Attach R session info in appendix</h2>
 <p>Since R and R packages are constantly evolving you might want to add the R session info that contains information on the R version as well as the packages that are loaded.</p>
-<pre><code>R version 4.0.3 (2020-10-10)
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 17763)
 
@@ -33801,24 +33800,26 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.3      modelsummary_0.8.1 kableExtra_1.3.4   knitr_1.33        
+[1] ggplot2_3.3.4      modelsummary_0.8.0 kableExtra_1.3.4   knitr_1.33        
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0  xfun_0.22         bslib_0.2.5.1     purrr_0.3.4      
- [5] colorspace_2.0-0  generics_0.1.0    vctrs_0.3.7       htmltools_0.5.1.1
- [9] viridisLite_0.4.0 yaml_2.2.1        utf8_1.2.1        rlang_0.4.10     
-[13] jquerylib_0.1.4   pillar_1.6.0      glue_1.4.2        withr_2.4.2      
-[17] DBI_1.1.1         lifecycle_1.0.0   stringr_1.4.0     munsell_0.5.0    
-[21] pagedown_0.14     gtable_0.3.0      rvest_1.0.0       evaluate_0.14    
-[25] labeling_0.4.2    fansi_0.4.2       highr_0.9         broom_0.7.6      
-[29] backports_1.2.1   scales_1.1.1      checkmate_2.0.0   webshot_0.5.2    
-[33] jsonlite_1.7.2    farver_2.1.0      systemfonts_1.0.2 digest_0.6.27    
-[37] stringi_1.5.3     bookdown_0.22     dplyr_1.0.5       grid_4.0.3       
-[41] tools_4.0.3       magrittr_2.0.1    sass_0.4.0        tibble_3.1.0     
-[45] crayon_1.4.1      tidyr_1.1.3       pkgconfig_2.0.3   ellipsis_0.3.1   
-[49] xml2_1.3.2        assertthat_0.2.1  rmarkdown_2.8     svglite_2.0.0    
-[53] httr_1.4.2        rstudioapi_0.13   R6_2.5.0          tables_0.9.6     
-[57] compiler_4.0.3   </code></pre>
+ [1] tidyselect_1.1.1  xfun_0.24         bslib_0.2.5.1     purrr_0.3.4      
+ [5] colorspace_2.0-1  generics_0.1.0    vctrs_0.3.8       htmltools_0.5.1.1
+ [9] viridisLite_0.4.0 yaml_2.2.1        utf8_1.2.1        rlang_0.4.11     
+[13] jquerylib_0.1.4   later_1.2.0       pillar_1.6.1      withr_2.4.2      
+[17] DBI_1.1.1         glue_1.4.2        lifecycle_1.0.0   stringr_1.4.0    
+[21] gtable_0.3.0      munsell_0.5.0     pagedown_0.14     rvest_1.0.0      
+[25] websocket_1.4.0   evaluate_0.14     labeling_0.4.2    httpuv_1.6.1     
+[29] ps_1.6.0          fansi_0.5.0       highr_0.9         broom_0.7.7      
+[33] Rcpp_1.0.6        promises_1.2.0.1  scales_1.1.1      backports_1.2.1  
+[37] checkmate_2.0.0   webshot_0.5.2     jsonlite_1.7.2    farver_2.1.0     
+[41] systemfonts_1.0.2 servr_0.22        digest_0.6.27     stringi_1.6.1    
+[45] bookdown_0.22     processx_3.5.2    dplyr_1.0.6       grid_4.1.0       
+[49] tools_4.1.0       magrittr_2.0.1    sass_0.4.0        tibble_3.1.2     
+[53] tidyr_1.1.3       pkgconfig_2.0.3   crayon_1.4.1      ellipsis_0.3.2   
+[57] xml2_1.3.2        assertthat_0.2.1  rmarkdown_2.9     svglite_2.0.0    
+[61] httr_1.4.2        rstudioapi_0.13   R6_2.5.0          tables_0.9.6     
+[65] compiler_4.1.0   </code></pre>
 </div>
 <div id="all-the-code-in-the-paper" class="section level2">
 <h2><span class="header-section-number">14.2</span> All the code in the paper</h2>
