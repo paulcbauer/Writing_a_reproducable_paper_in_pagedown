@@ -76,7 +76,7 @@ remotes::install_github('rstudio/pagedown')
 * ...also install the packages below using the code below [@bookdown1; @bookdown2; @knitr1; @knitr2; @knitr3; @kableextra].
 ```{r eval=FALSE, include=TRUE}
 install.packages(c("rmarkdown", "knitr", "kableExtra",
-                   "stargazer", "modelsummary", "knitr"))
+                   "stargazer", "modelsummary", "knitr", "gt"))
 ```
 * ...download the 4 input files we created --- `paper.rmd`, `references.bib`, `data.csv` and `american-sociological-association.csl` --- from [this folder](https://drive.google.com/drive/folders/1rWzj-Bu1EKqkSuE1gaFzduBJhzlThpkw?usp=sharing). Ignore the other files.
 * ...also download the 4 styling files we created: `wp_paged.html`, `wp.css`, `wp-fonts.css` and `wp-pages.css`.
@@ -272,7 +272,7 @@ tab_cat
 ## Regression table
 
 
-Table \@ref(tab:table-5) shows the output for a regression table. Make sure you name all your models and explicitly refer to model names (M1, M2 etc.) in the text.
+Table \@ref(tab:table-5) shows the output for a regression table. Make sure you name all the models you estimate (even if its 50) and explicitly refer to model names (M1, M2 etc.) in the text.
 
 ```{r table-5, echo=TRUE, message=FALSE, warning=FALSE}
 library(modelsummary)
@@ -281,19 +281,28 @@ M2 <- lm(Fertility ~ Education + Catholic, data = swiss)
 M3 <- lm(Fertility ~ Education + Infant.Mortality + Agriculture, data = swiss)
 models <- list("M1" = M1, "M2" =  M2, "M3" = M3)
 
-tab_reg <-modelsummary(models, title = 'A regression table.', output = 'flextable')
 
+library(gt)
 # additionally we want to change the font, font size and spacing
-library("gdtools")
+modelsummary(models,
+             title = 'Linear regression',
+             output = 'gt',
+             notes = "Notes: some notes...") %>%
+    tab_spanner(label = 'Dependent variable: Fertility', columns = 2:4) %>%
+  tab_options(
+    table.font.size = 10,
+    data_row.padding = px(1),
+    table.border.top.color = "white",
+    heading.border.bottom.color = "black",
+    row_group.border.top.color = "black",
+    row_group.border.bottom.color = "white",
+    table.border.bottom.color = "white",
+    column_labels.border.top.color = "black",
+    column_labels.border.bottom.color = "black",
+    table_body.border.bottom.color = "black",
+    table_body.hlines.color = "white"
+  )
 
-tab_reg <- tab_reg %>%
-  font(fontname="Times New Roman", part="header") %>%
-  font(fontname="Times New Roman", j=1:4) %>% 
-  fontsize(size=10, part="header") %>%
-  fontsize(size=10, j=1:4) %>% 
-  line_spacing(space = 0.3, part = "all")
-
-tab_reg
 
 ```
 

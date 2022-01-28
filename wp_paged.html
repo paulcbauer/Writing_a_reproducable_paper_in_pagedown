@@ -150,6 +150,7 @@ $endfor$
 
 <br><br><br><br>
 
+
 <article>
 
 $if(title)$
@@ -164,11 +165,10 @@ $for(author)$
 $if(author.data.name)$
 <span class="author">$author.data.name$</span>
 $if(author.data.affiliation)$
-<br><span class="author-affil">
-$author.data.affiliation$
-<br><span class="author-email"> <! –– CL&PB: email (+) -->
-$author.data.email$
-</span>
+<br><span class="author-affil">$author.data.affiliation$</span>
+$endif$
+$if(author.data.email)$
+<br><span class="author-email">$author.data.email$</span><!–– CL&PB -->
 $endif$
 $else$
 <span class="author">$author.data$</span>
